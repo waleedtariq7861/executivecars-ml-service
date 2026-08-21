@@ -1,0 +1,66 @@
+from pathlib import Path
+
+import pandas as pd
+import pytest
+from pydantic import ValidationError
+from sklearn.dummy import DummyRegressor
+from sklearn.linear_model import Ridge
+from sklearn.pipeline import Pipeline
+
+from app import training
+from app.prediction import predict
+from app.schemas import PredictionInput
+
+
+def records(count=45):
+    makes = [("Toyota", "Corolla", 4_800_000), ("Honda", "City", 4_200_000), ("Suzuki", "Swift", 3_300_000)]
+    rows = []
+    for index in range(count):
+        make, model, base = makes[index % len(makes)]
+        year = 2016 + index % 8
+        mileage = 25_000 + (index % 12) * 7_000
+        rows.append({
+            "make": make, "model": model, "variant": "Test Variant", "modelYear": year,
+            "mileage": mileage, "engineCapacity": 1300 + (index % 2) * 200,
+            "transmission": "Auto" if index % 2 else "Manual", "fuelType": "Petrol",
+            "listingCity": "Rawalpindi", "condition": "Good", "assemblyType": "Local",
+            "listingPrice": base + (year - 2016) * 180_000 - mileage * 4 + index * 1_000,
+            "listingDate": f"2025-{(index % 12) + 1:02d}-01", "source": "Synthetic unit-test fixture",
+        })
+    return rows
+
+
+def test_prediction_schema_rejects_negative_mileage():
+    with pytest.raises(ValidationError):
+        PredictionInput(make="Toyota", model="Corolla", year=2020, mileage=-1)
+
+
+def test_training_saves_loadable_model_and_predicts(monkeypatch, tmp_path: Path):
+    monkeypatch.setenv("MODEL_DIR", str(tmp_path))
+    monkeypatch.setenv("REPORT_DIR", str(tmp_path / "reports"))
+    monkeypatch.setattr(training, "candidates", lambda: {
+        "median_baseline": Pipeline([("preprocess", training._one_hot_preprocessor()), ("model", DummyRegressor(strategy="median"))]),
+        "ridge_regression": Pipeline([("preprocess", training._one_hot_preprocessor()), ("model", Ridge(alpha=10.0))]),
+    })
+    result = training.train_from_frame(pd.DataFrame.from_records(records()))
+    assert result["metrics"]["mae"] >= 0
+    bundle = training.load_active_bundle()
+    assert bundle is not None
+    response = predict(bundle, PredictionInput(
+        make="Toyota", model="Corolla", variant="Test Variant", year=2021, mileage=45_000,
+        engineCapacity=1300, transmission="Auto", fuelType="Petrol", city="Rawalpindi",
+        condition="Good", assemblyType="Local",
+    ))
+    assert response["estimatedMarketPrice"] > 0
+    assert response["predicted_price"] == response["estimatedPrice"]
+    assert response["currency"] == "PKR"
+    assert response["method"] == "trained_ml"
+    assert response["lowerRange"] <= response["estimatedPrice"] <= response["upperRange"]
+    assert response["rangeMethod"]["method"] == "mondrian_split_conformal_absolute_residual"
+    assert "confidence" not in response
+    assert response["modelMetrics"]["mae"] >= 0
+    assert response["modelVersion"] == result["version"]
+    schema_path = tmp_path / result["version"] / "feature_schema.json"
+    assert schema_path.exists()
+    assert result["splitSummary"]["crossValidationFolds"] == 3
+    assert len((tmp_path / "reports" / "model_evaluation.json").read_text()) > 0

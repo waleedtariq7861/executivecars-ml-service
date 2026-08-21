@@ -1,0 +1,109 @@
+{
+  "receivedRecords": 77878,
+  "removedRecords": 5699,
+  "rejectedRecords": 5699,
+  "duplicateRecords": 338,
+  "usableRecords": 72179,
+  "missingValuePercentagesBeforeCleaning": {
+    "make": 0.0,
+    "model": 0.0,
+    "variant": 100.0,
+    "modelYear": 6.14,
+    "registrationCity": 0.0,
+    "listingCity": 0.0,
+    "engineCapacity": 0.0,
+    "fuelType": 1.16,
+    "transmission": 0.0,
+    "mileage": 0.0,
+    "bodyType": 11.43,
+    "assemblyType": 68.94,
+    "colour": 1.9,
+    "condition": 100.0,
+    "numberOfOwners": 100.0,
+    "inspectionScore": 100.0,
+    "listingPrice": 0.75,
+    "finalSalePrice": 100.0,
+    "listingDate": 100.0,
+    "source": 100.0,
+    "sourceUrl": 100.0
+  },
+  "removalSteps": [
+    {
+      "reason": "missing_or_non_numeric_price",
+      "removedRows": 583,
+      "explanation": "Price is the target and cannot be imputed without fabricating labels."
+    },
+    {
+      "reason": "price_outside_hard_bounds",
+      "removedRows": 1,
+      "explanation": "Retained only PKR 100,000\u2013500,000,000; IQR-only premium outliers inside this range remain."
+    },
+    {
+      "reason": "missing_or_non_numeric_year",
+      "removedRows": 4623,
+      "explanation": "Model year is a core age feature and is not imputed."
+    },
+    {
+      "reason": "invalid_model_year",
+      "removedRows": 0,
+      "explanation": "Accepted model years from 1980 through next calendar year."
+    },
+    {
+      "reason": "missing_or_non_numeric_mileage",
+      "removedRows": 0,
+      "explanation": "Mileage is a core depreciation feature and is not imputed."
+    },
+    {
+      "reason": "invalid_mileage",
+      "removedRows": 0,
+      "explanation": "Accepted mileage from 0 through 1,000,000 km."
+    },
+    {
+      "reason": "missing_or_non_numeric_engine",
+      "removedRows": 2,
+      "explanation": "Engine capacity is retained as a core numeric feature and is not imputed."
+    },
+    {
+      "reason": "invalid_engine_capacity",
+      "removedRows": 152,
+      "explanation": "Accepted engine sizes from 300 through 10,000 cc."
+    },
+    {
+      "reason": "missing_make_or_model",
+      "removedRows": 0,
+      "explanation": "Both make and model are required to prevent unsupported anonymous categories."
+    },
+    {
+      "reason": "duplicate_vehicle_record",
+      "removedRows": 338,
+      "explanation": "Removed canonical duplicates after excluding source identifiers such as addref."
+    }
+  ],
+  "rejectionReasons": {
+    "missing_or_non_numeric_price": 583,
+    "price_outside_hard_bounds": 1,
+    "missing_or_non_numeric_year": 4623,
+    "missing_or_non_numeric_engine": 2,
+    "invalid_engine_capacity": 152,
+    "duplicate_vehicle_record": 338
+  },
+  "hardThresholds": {
+    "modelYear": [
+      1980,
+      2027
+    ],
+    "mileageKm": [
+      0,
+      1000000
+    ],
+    "engineCc": [
+      300,
+      10000
+    ],
+    "pricePkr": [
+      100000,
+      500000000
+    ]
+  },
+  "categoricalMissingPolicy": "Missing categorical values are represented as Unknown; core numeric fields are never blindly imputed."
+}

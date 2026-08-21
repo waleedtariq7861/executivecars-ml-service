@@ -1,0 +1,1147 @@
+{
+  "modelVersion": "ec-20260820-100203-13d9e2ba",
+  "selectedModel": "extra_trees_320_regularized",
+  "selectedFamily": "sklearn",
+  "selectionMetrics": {
+    "mae": 366825.41,
+    "rmse": 1479936.3867,
+    "r2": 0.9157,
+    "mape": 10.9113,
+    "medianAbsoluteError": 155306.4267
+  },
+  "testMetrics": {
+    "mae": 328377.64,
+    "rmse": 952957.28,
+    "r2": 0.9548,
+    "mape": 10.324,
+    "medianAbsoluteError": 152900.99
+  },
+  "modelComparisons": {
+    "median_baseline": {
+      "trialNumber": 1,
+      "status": "completed",
+      "family": "sklearn",
+      "configuration": {
+        "strategy": "median"
+      },
+      "validation": {
+        "mae": 2235656.07,
+        "rmse": 5218401.67,
+        "r2": -0.0442,
+        "mape": 85.0223,
+        "medianAbsoluteError": 1388333.3333
+      },
+      "crossValidation": {
+        "folds": 3,
+        "mean": {
+          "mae": 2235656.07,
+          "rmse": 5218401.67,
+          "r2": -0.0442,
+          "mape": 85.0223,
+          "medianAbsoluteError": 1388333.3333
+        },
+        "standardDeviation": {
+          "mae": 19991.6966,
+          "rmse": 146808.4299,
+          "r2": 0.0039,
+          "mape": 0.5426,
+          "medianAbsoluteError": 6236.0956
+        }
+      },
+      "trainingSeconds": 0.68,
+      "inferenceMillisecondsPer1000Rows": 3.993
+    },
+    "extra_trees_220": {
+      "trialNumber": 2,
+      "status": "completed",
+      "family": "sklearn",
+      "configuration": {
+        "n_estimators": 220,
+        "max_features": 0.75,
+        "min_samples_leaf": 1,
+        "max_depth": null
+      },
+      "validation": {
+        "mae": 375330.8,
+        "rmse": 1472397.9333,
+        "r2": 0.9163,
+        "mape": 11.3487,
+        "medianAbsoluteError": 164166.6667
+      },
+      "crossValidation": {
+        "folds": 3,
+        "mean": {
+          "mae": 375330.8,
+          "rmse": 1472397.9333,
+          "r2": 0.9163,
+          "mape": 11.3487,
+          "medianAbsoluteError": 164166.6667
+        },
+        "standardDeviation": {
+          "mae": 2879.3907,
+          "rmse": 211352.3432,
+          "r2": 0.0196,
+          "mape": 0.0881,
+          "medianAbsoluteError": 1880.1993
+        }
+      },
+      "trainingSeconds": 29.418,
+      "inferenceMillisecondsPer1000Rows": 86.466
+    },
+    "extra_trees_320_regularized": {
+      "trialNumber": 3,
+      "status": "completed",
+      "family": "sklearn",
+      "configuration": {
+        "n_estimators": 320,
+        "max_features": 1.0,
+        "min_samples_leaf": 2,
+        "max_depth": null
+      },
+      "validation": {
+        "mae": 366825.41,
+        "rmse": 1479936.3867,
+        "r2": 0.9157,
+        "mape": 10.9113,
+        "medianAbsoluteError": 155306.4267
+      },
+      "crossValidation": {
+        "folds": 3,
+        "mean": {
+          "mae": 366825.41,
+          "rmse": 1479936.3867,
+          "r2": 0.9157,
+          "mape": 10.9113,
+          "medianAbsoluteError": 155306.4267
+        },
+        "standardDeviation": {
+          "mae": 2224.196,
+          "rmse": 185286.3961,
+          "r2": 0.0163,
+          "mape": 0.084,
+          "medianAbsoluteError": 1573.4167
+        }
+      },
+      "trainingSeconds": 43.565,
+      "inferenceMillisecondsPer1000Rows": 89.399
+    },
+    "random_forest_180_leaf_2": {
+      "trialNumber": 4,
+      "status": "completed",
+      "family": "sklearn",
+      "configuration": {
+        "n_estimators": 180,
+        "max_features": 0.8,
+        "min_samples_leaf": 2,
+        "max_depth": null
+      },
+      "validation": {
+        "mae": 371950.0733,
+        "rmse": 1596802.9733,
+        "r2": 0.9018,
+        "mape": 10.903,
+        "medianAbsoluteError": 152396.1533
+      },
+      "crossValidation": {
+        "folds": 3,
+        "mean": {
+          "mae": 371950.0733,
+          "rmse": 1596802.9733,
+          "r2": 0.9018,
+          "mape": 10.903,
+          "medianAbsoluteError": 152396.1533
+        },
+        "standardDeviation": {
+          "mae": 2702.7075,
+          "rmse": 214868.0529,
+          "r2": 0.0202,
+          "mape": 0.139,
+          "medianAbsoluteError": 1305.2578
+        }
+      },
+      "trainingSeconds": 5.635,
+      "inferenceMillisecondsPer1000Rows": 28.728
+    },
+    "hist_gradient_320": {
+      "trialNumber": 5,
+      "status": "completed",
+      "family": "sklearn",
+      "configuration": {
+        "max_iter": 320,
+        "learning_rate": 0.06,
+        "max_leaf_nodes": 40,
+        "min_samples_leaf": 25,
+        "l2_regularization": 1.5
+      },
+      "validation": {
+        "mae": 413514.37,
+        "rmse": 1564737.9033,
+        "r2": 0.9057,
+        "mape": 12.5113,
+        "medianAbsoluteError": 180006.6867
+      },
+      "crossValidation": {
+        "folds": 3,
+        "mean": {
+          "mae": 413514.37,
+          "rmse": 1564737.9033,
+          "r2": 0.9057,
+          "mape": 12.5113,
+          "medianAbsoluteError": 180006.6867
+        },
+        "standardDeviation": {
+          "mae": 5618.9941,
+          "rmse": 213421.7563,
+          "r2": 0.0198,
+          "mape": 0.1826,
+          "medianAbsoluteError": 1277.9088
+        }
+      },
+      "trainingSeconds": 4.161,
+      "inferenceMillisecondsPer1000Rows": 9.787
+    },
+    "catboost_depth_7": {
+      "trialNumber": 6,
+      "status": "completed",
+      "family": "catboost",
+      "configuration": {
+        "iterations": 1100,
+        "depth": 7,
+        "learning_rate": 0.065,
+        "l2_leaf_reg": 4,
+        "random_strength": 0.7,
+        "bagging_temperature": 0.2
+      },
+      "validation": {
+        "mae": 389967.4233,
+        "rmse": 1419695.0,
+        "r2": 0.9225,
+        "mape": 11.582,
+        "medianAbsoluteError": 174315.92
+      },
+      "crossValidation": {
+        "folds": 3,
+        "mean": {
+          "mae": 389967.4233,
+          "rmse": 1419695.0,
+          "r2": 0.9225,
+          "mape": 11.582,
+          "medianAbsoluteError": 174315.92
+        },
+        "standardDeviation": {
+          "mae": 5032.5908,
+          "rmse": 168145.8837,
+          "r2": 0.0141,
+          "mape": 0.3232,
+          "medianAbsoluteError": 4051.4539
+        }
+      },
+      "trainingSeconds": 39.048,
+      "inferenceMillisecondsPer1000Rows": 3.131,
+      "bestIteration": 1099
+    }
+  },
+  "tuningSummary": {
+    "method": "Controlled three-fold cross-validation search with a fixed candidate budget and CatBoost early stopping.",
+    "trialsPlanned": 6,
+    "trialsCompleted": 6,
+    "trialsFailed": 0,
+    "randomSeed": 42,
+    "selectedConfiguration": {
+      "n_estimators": 320,
+      "max_features": 1.0,
+      "min_samples_leaf": 2,
+      "max_depth": null
+    },
+    "selectionRule": "Lowest cross-validation MAE, then RMSE, MAE stability, then inference time as tie-breakers."
+  },
+  "splitSummary": {
+    "seed": 42,
+    "developmentRows": 57743,
+    "crossValidationFolds": 3,
+    "calibrationRows": 7218,
+    "testRows": 7218,
+    "selectionRule": "Lowest cross-validation MAE, then RMSE, MAE stability, then inference time as tie-breakers."
+  },
+  "errorAnalysis": {
+    "overall": {
+      "mae": 328377.64,
+      "rmse": 952957.28,
+      "r2": 0.9548,
+      "mape": 10.324,
+      "medianAbsoluteError": 152900.99
+    },
+    "majorMakes": [
+      {
+        "group": "Toyota",
+        "rows": 2323,
+        "mae": 432793.57,
+        "rmse": 922191.25,
+        "r2": 0.9719,
+        "mape": 9.394,
+        "medianAbsoluteError": 229245.83
+      },
+      {
+        "group": "Suzuki",
+        "rows": 2115,
+        "mae": 134998.79,
+        "rmse": 218967.42,
+        "r2": 0.9495,
+        "mape": 10.981,
+        "medianAbsoluteError": 88859.6
+      },
+      {
+        "group": "Honda",
+        "rows": 1565,
+        "mae": 256643.33,
+        "rmse": 511310.7,
+        "r2": 0.9423,
+        "mape": 8.062,
+        "medianAbsoluteError": 161708.66
+      },
+      {
+        "group": "Daihatsu",
+        "rows": 293,
+        "mae": 186763.19,
+        "rmse": 267675.28,
+        "r2": 0.9418,
+        "mape": 11.583,
+        "medianAbsoluteError": 133855.21
+      },
+      {
+        "group": "Kia",
+        "rows": 172,
+        "mae": 523682.8,
+        "rmse": 1480861.91,
+        "r2": 0.7259,
+        "mape": 8.93,
+        "medianAbsoluteError": 204247.45
+      },
+      {
+        "group": "Nissan",
+        "rows": 142,
+        "mae": 516809.08,
+        "rmse": 2012930.24,
+        "r2": 0.5886,
+        "mape": 17.843,
+        "medianAbsoluteError": 187596.19
+      },
+      {
+        "group": "Hyundai",
+        "rows": 113,
+        "mae": 223440.84,
+        "rmse": 432966.18,
+        "r2": 0.988,
+        "mape": 10.622,
+        "medianAbsoluteError": 117473.96
+      },
+      {
+        "group": "Mitsubishi",
+        "rows": 97,
+        "mae": 338671.4,
+        "rmse": 509189.6,
+        "r2": 0.6205,
+        "mape": 17.677,
+        "medianAbsoluteError": 203734.61
+      },
+      {
+        "group": "Changan",
+        "rows": 81,
+        "mae": 168623.92,
+        "rmse": 241032.45,
+        "r2": 0.9725,
+        "mape": 5.597,
+        "medianAbsoluteError": 124764.06
+      },
+      {
+        "group": "Mercedes",
+        "rows": 47,
+        "mae": 1402483.92,
+        "rmse": 2012072.31,
+        "r2": 0.964,
+        "mape": 21.808,
+        "medianAbsoluteError": 972594.31
+      },
+      {
+        "group": "MG",
+        "rows": 44,
+        "mae": 318611.98,
+        "rmse": 400281.97,
+        "r2": 0.8402,
+        "mape": 4.98,
+        "medianAbsoluteError": 255390.48
+      },
+      {
+        "group": "FAW",
+        "rows": 25,
+        "mae": 122798.98,
+        "rmse": 156761.93,
+        "r2": 0.8833,
+        "mape": 13.249,
+        "medianAbsoluteError": 103593.49
+      }
+    ],
+    "commonModels": [
+      {
+        "group": "Toyota Corolla",
+        "rows": 1188,
+        "mae": 263058.67,
+        "rmse": 360840.52,
+        "r2": 0.9522,
+        "mape": 8.476,
+        "medianAbsoluteError": 201975.63
+      },
+      {
+        "group": "Honda Civic",
+        "rows": 823,
+        "mae": 263749.57,
+        "rmse": 532412.28,
+        "r2": 0.9438,
+        "mape": 8.751,
+        "medianAbsoluteError": 176995.31
+      },
+      {
+        "group": "Honda City",
+        "rows": 495,
+        "mae": 162306.35,
+        "rmse": 225546.27,
+        "r2": 0.9643,
+        "mape": 6.339,
+        "medianAbsoluteError": 121791.02
+      },
+      {
+        "group": "Suzuki Mehran",
+        "rows": 479,
+        "mae": 89811.61,
+        "rmse": 130123.94,
+        "r2": 0.846,
+        "mape": 11.672,
+        "medianAbsoluteError": 64710.8
+      },
+      {
+        "group": "Suzuki Cultus",
+        "rows": 473,
+        "mae": 135018.2,
+        "rmse": 201519.3,
+        "r2": 0.9562,
+        "mape": 9.391,
+        "medianAbsoluteError": 91153.09
+      },
+      {
+        "group": "Suzuki Alto",
+        "rows": 377,
+        "mae": 116608.51,
+        "rmse": 183047.15,
+        "r2": 0.9583,
+        "mape": 8.013,
+        "medianAbsoluteError": 76867.5
+      },
+      {
+        "group": "Suzuki Wagon",
+        "rows": 224,
+        "mae": 173408.61,
+        "rmse": 288480.45,
+        "r2": 0.7936,
+        "mape": 7.035,
+        "medianAbsoluteError": 117678.11
+      },
+      {
+        "group": "Toyota Vitz",
+        "rows": 189,
+        "mae": 186268.13,
+        "rmse": 245194.68,
+        "r2": 0.926,
+        "mape": 7.17,
+        "medianAbsoluteError": 144971.35
+      },
+      {
+        "group": "Toyota Yaris",
+        "rows": 120,
+        "mae": 184457.49,
+        "rmse": 262430.65,
+        "r2": 0.8821,
+        "mape": 3.873,
+        "medianAbsoluteError": 127768.13
+      },
+      {
+        "group": "Suzuki Swift",
+        "rows": 120,
+        "mae": 155657.89,
+        "rmse": 203483.23,
+        "r2": 0.9555,
+        "mape": 6.243,
+        "medianAbsoluteError": 125894.5
+      },
+      {
+        "group": "Toyota Prado",
+        "rows": 114,
+        "mae": 1229481.28,
+        "rmse": 1715623.18,
+        "r2": 0.965,
+        "mape": 11.691,
+        "medianAbsoluteError": 904150.39
+      },
+      {
+        "group": "Suzuki Bolan",
+        "rows": 106,
+        "mae": 119989.37,
+        "rmse": 220657.18,
+        "r2": 0.7434,
+        "mape": 18.836,
+        "medianAbsoluteError": 87952.73
+      },
+      {
+        "group": "Toyota Hilux",
+        "rows": 103,
+        "mae": 623238.12,
+        "rmse": 983308.51,
+        "r2": 0.9444,
+        "mape": 9.549,
+        "medianAbsoluteError": 346513.02
+      },
+      {
+        "group": "Toyota Passo",
+        "rows": 100,
+        "mae": 183315.11,
+        "rmse": 258660.83,
+        "r2": 0.9196,
+        "mape": 6.571,
+        "medianAbsoluteError": 123969.1
+      },
+      {
+        "group": "Kia Sportage",
+        "rows": 98,
+        "mae": 408713.09,
+        "rmse": 569850.97,
+        "r2": 0.8651,
+        "mape": 6.474,
+        "medianAbsoluteError": 279551.95
+      },
+      {
+        "group": "Daihatsu Cuore",
+        "rows": 93,
+        "mae": 115135.52,
+        "rmse": 158106.87,
+        "r2": 0.5063,
+        "mape": 14.002,
+        "medianAbsoluteError": 89376.82
+      },
+      {
+        "group": "Daihatsu Mira",
+        "rows": 92,
+        "mae": 166296.59,
+        "rmse": 208685.84,
+        "r2": 0.9258,
+        "mape": 6.766,
+        "medianAbsoluteError": 161933.25
+      },
+      {
+        "group": "Honda Vezel",
+        "rows": 73,
+        "mae": 474070.93,
+        "rmse": 698901.43,
+        "r2": 0.8913,
+        "mape": 6.753,
+        "medianAbsoluteError": 293728.47
+      },
+      {
+        "group": "Toyota Fortuner",
+        "rows": 67,
+        "mae": 919943.9,
+        "rmse": 1566867.2,
+        "r2": 0.8112,
+        "mape": 6.083,
+        "medianAbsoluteError": 753213.24
+      },
+      {
+        "group": "Suzuki Khyber",
+        "rows": 64,
+        "mae": 85644.04,
+        "rmse": 112943.97,
+        "r2": 0.3397,
+        "mape": 19.527,
+        "medianAbsoluteError": 52120.31
+      }
+    ],
+    "priceBands": [
+      {
+        "group": "PKR 2.5m\u20135m",
+        "rows": 2409,
+        "mae": 292498.71,
+        "rmse": 716341.81,
+        "r2": -0.0537,
+        "mape": 8.196,
+        "medianAbsoluteError": 177184.72
+      },
+      {
+        "group": "PKR 1m\u20132.5m",
+        "rows": 2276,
+        "mae": 188177.61,
+        "rmse": 320989.06,
+        "r2": 0.4947,
+        "mape": 10.934,
+        "medianAbsoluteError": 125712.76
+      },
+      {
+        "group": "PKR 5m\u201310m",
+        "rows": 1165,
+        "mae": 523407.34,
+        "rmse": 1175343.96,
+        "r2": 0.0821,
+        "mape": 7.625,
+        "medianAbsoluteError": 275198.54
+      },
+      {
+        "group": "Under PKR 1m",
+        "rows": 1090,
+        "mae": 109928.93,
+        "rmse": 164724.04,
+        "r2": 0.226,
+        "mape": 16.945,
+        "medianAbsoluteError": 78166.89
+      },
+      {
+        "group": "PKR 10m+",
+        "rows": 278,
+        "mae": 1826316.79,
+        "rmse": 3520365.08,
+        "r2": 0.9248,
+        "mape": 9.126,
+        "medianAbsoluteError": 968083.36
+      }
+    ],
+    "vehicleAgeBands": [
+      {
+        "group": "6\u201310 years",
+        "rows": 1596,
+        "mae": 328872.94,
+        "rmse": 941180.88,
+        "r2": 0.9376,
+        "mape": 9.65,
+        "medianAbsoluteError": 158944.79
+      },
+      {
+        "group": "16+ years",
+        "rows": 1566,
+        "mae": 286093.97,
+        "rmse": 840627.63,
+        "r2": 0.8371,
+        "mape": 16.117,
+        "medianAbsoluteError": 131153.06
+      },
+      {
+        "group": "0\u20132 years",
+        "rows": 1535,
+        "mae": 349449.12,
+        "rmse": 930327.63,
+        "r2": 0.9655,
+        "mape": 6.025,
+        "medianAbsoluteError": 167165.05
+      },
+      {
+        "group": "3\u20135 years",
+        "rows": 1361,
+        "mae": 403335.7,
+        "rmse": 1288267.14,
+        "r2": 0.9566,
+        "mape": 8.39,
+        "medianAbsoluteError": 174446.84
+      },
+      {
+        "group": "11\u201315 years",
+        "rows": 1160,
+        "mae": 268949.25,
+        "rmse": 620869.67,
+        "r2": 0.9424,
+        "mape": 11.39,
+        "medianAbsoluteError": 132949.5
+      }
+    ],
+    "makeCoverage": [
+      {
+        "group": "Common make",
+        "rows": 7127,
+        "mae": 303248.95,
+        "rmse": 766670.65,
+        "r2": 0.9627,
+        "mape": 10.12,
+        "medianAbsoluteError": 151230.51
+      },
+      {
+        "group": "Rare make (<100 development rows)",
+        "rows": 91,
+        "mae": 2296422.98,
+        "rmse": 5098727.59,
+        "r2": 0.9163,
+        "mape": 26.309,
+        "medianAbsoluteError": 548441.41
+      }
+    ],
+    "modelCoverage": [
+      {
+        "group": "Common make-model",
+        "rows": 6971,
+        "mae": 289782.83,
+        "rmse": 724185.81,
+        "r2": 0.9727,
+        "mape": 9.558,
+        "medianAbsoluteError": 148575.63
+      },
+      {
+        "group": "Rare make-model (<30 development rows)",
+        "rows": 247,
+        "mae": 1417626.34,
+        "rmse": 3425882.74,
+        "r2": 0.729,
+        "mape": 31.942,
+        "medianAbsoluteError": 414384.11
+      }
+    ],
+    "coverageDefinitions": {
+      "rareMake": "Fewer than 100 rows in the development data.",
+      "rareMakeModel": "Fewer than 30 rows in the development data."
+    }
+  },
+  "predictionRange": {
+    "method": "mondrian_split_conformal_absolute_residual",
+    "targetCoverage": 0.85,
+    "minimumMakeModelCalibrationRows": 40,
+    "calibrationRows": 7218,
+    "coverageOptions": {
+      "0.7": {
+        "globalAbsoluteResidualQuantilePkr": 270198.18,
+        "makeModelQuantilesPkr": {
+          "Changan Karvaan": 174316.63,
+          "Daihatsu Cuore": 140762.76,
+          "Daihatsu Mira": 242489.41,
+          "Honda Br-V": 260434.81,
+          "Honda City": 203041.46,
+          "Honda Civic": 293603.23,
+          "Honda Vezel": 642483.07,
+          "Hyundai Santro": 139429.34,
+          "Kia Picanto": 205614.06,
+          "Kia Sportage": 572912.95,
+          "Mercedes Benz": 1208203.13,
+          "Suzuki Alto": 144175.89,
+          "Suzuki Baleno": 153391.03,
+          "Suzuki Bolan": 130334.24,
+          "Suzuki Cultus": 148200.21,
+          "Suzuki Every": 356267.71,
+          "Suzuki Khyber": 164092.19,
+          "Suzuki Liana": 275632.81,
+          "Suzuki Mehran": 106891.49,
+          "Suzuki Swift": 176978.7,
+          "Suzuki Wagon": 208551.65,
+          "Toyota Aqua": 482208.15,
+          "Toyota Corolla": 309637.24,
+          "Toyota Fortuner": 898382.81,
+          "Toyota Hilux": 621277.69,
+          "Toyota Land": 2430781.25,
+          "Toyota Passo": 260797.78,
+          "Toyota Prado": 1765121.28,
+          "Toyota Prius": 534236.9,
+          "Toyota Vitz": 238322.4,
+          "Toyota Yaris": 290071.87
+        },
+        "groupsWithDedicatedCalibration": 31,
+        "medianIntervalWidthPkr": 540396.35,
+        "averageIntervalWidthPkr": 621921.28
+      },
+      "0.8": {
+        "globalAbsoluteResidualQuantilePkr": 390445.31,
+        "makeModelQuantilesPkr": {
+          "Changan Karvaan": 187382.55,
+          "Daihatsu Cuore": 181767.52,
+          "Daihatsu Mira": 311815.62,
+          "Honda Br-V": 347068.64,
+          "Honda City": 260388.37,
+          "Honda Civic": 375528.23,
+          "Honda Vezel": 795691.74,
+          "Hyundai Santro": 196742.11,
+          "Kia Picanto": 249020.05,
+          "Kia Sportage": 724087.66,
+          "Mercedes Benz": 2365461.31,
+          "Suzuki Alto": 200960.93,
+          "Suzuki Baleno": 180420.66,
+          "Suzuki Bolan": 166595.62,
+          "Suzuki Cultus": 191319.06,
+          "Suzuki Every": 586584.26,
+          "Suzuki Khyber": 212899.48,
+          "Suzuki Liana": 378639.32,
+          "Suzuki Mehran": 140009.24,
+          "Suzuki Swift": 249444.69,
+          "Suzuki Wagon": 271492.71,
+          "Toyota Aqua": 680525.07,
+          "Toyota Corolla": 428213.56,
+          "Toyota Fortuner": 1025979.06,
+          "Toyota Hilux": 803947.92,
+          "Toyota Land": 4539479.17,
+          "Toyota Passo": 314829.87,
+          "Toyota Prado": 2587723.96,
+          "Toyota Prius": 697498.44,
+          "Toyota Vitz": 304349.4,
+          "Toyota Yaris": 390490.89
+        },
+        "groupsWithDedicatedCalibration": 31,
+        "medianIntervalWidthPkr": 751056.46,
+        "averageIntervalWidthPkr": 872720.4
+      },
+      "0.85": {
+        "globalAbsoluteResidualQuantilePkr": 479245.31,
+        "makeModelQuantilesPkr": {
+          "Changan Karvaan": 249587.34,
+          "Daihatsu Cuore": 209495.05,
+          "Daihatsu Mira": 381083.07,
+          "Honda Br-V": 472282.18,
+          "Honda City": 293694.51,
+          "Honda Civic": 459590.51,
+          "Honda Vezel": 932029.41,
+          "Hyundai Santro": 220049.83,
+          "Kia Picanto": 277319.53,
+          "Kia Sportage": 881544.41,
+          "Mercedes Benz": 2720552.08,
+          "Suzuki Alto": 223216.29,
+          "Suzuki Baleno": 188300.77,
+          "Suzuki Bolan": 183491.8,
+          "Suzuki Cultus": 226649.59,
+          "Suzuki Every": 634957.29,
+          "Suzuki Khyber": 234446.35,
+          "Suzuki Liana": 442650.26,
+          "Suzuki Mehran": 155852.02,
+          "Suzuki Swift": 280127.83,
+          "Suzuki Wagon": 318023.4,
+          "Toyota Aqua": 961648.44,
+          "Toyota Corolla": 489260.26,
+          "Toyota Fortuner": 1349070.31,
+          "Toyota Hilux": 1012751.04,
+          "Toyota Land": 6069666.22,
+          "Toyota Passo": 380217.7,
+          "Toyota Prado": 3055854.17,
+          "Toyota Prius": 733910.42,
+          "Toyota Vitz": 389016.06,
+          "Toyota Yaris": 426404.28
+        },
+        "groupsWithDedicatedCalibration": 31,
+        "medianIntervalWidthPkr": 919181.02,
+        "averageIntervalWidthPkr": 1045454.3
+      },
+      "0.9": {
+        "globalAbsoluteResidualQuantilePkr": 632402.86,
+        "makeModelQuantilesPkr": {
+          "Changan Karvaan": 255252.08,
+          "Daihatsu Cuore": 226016.41,
+          "Daihatsu Mira": 444725.43,
+          "Honda Br-V": 637310.16,
+          "Honda City": 381600.52,
+          "Honda Civic": 545521.61,
+          "Honda Vezel": 979765.62,
+          "Hyundai Santro": 411859.59,
+          "Kia Picanto": 437512.24,
+          "Kia Sportage": 1084296.95,
+          "Mercedes Benz": 6284888.39,
+          "Suzuki Alto": 272292.97,
+          "Suzuki Baleno": 244170.16,
+          "Suzuki Bolan": 226827.19,
+          "Suzuki Cultus": 277711.2,
+          "Suzuki Every": 782082.29,
+          "Suzuki Khyber": 255956.61,
+          "Suzuki Liana": 599914.32,
+          "Suzuki Mehran": 181716.07,
+          "Suzuki Swift": 334943.75,
+          "Suzuki Wagon": 352003.02,
+          "Toyota Aqua": 1037508.54,
+          "Toyota Corolla": 577442.26,
+          "Toyota Fortuner": 1492725.49,
+          "Toyota Hilux": 1389916.67,
+          "Toyota Land": 7672876.49,
+          "Toyota Passo": 459394.27,
+          "Toyota Prado": 3292306.55,
+          "Toyota Prius": 1062776.04,
+          "Toyota Vitz": 478728.2,
+          "Toyota Yaris": 563735.68
+        },
+        "groupsWithDedicatedCalibration": 31,
+        "medianIntervalWidthPkr": 1091043.22,
+        "averageIntervalWidthPkr": 1332296.46
+      }
+    },
+    "globalAbsoluteResidualQuantilePkr": 479245.31,
+    "makeModelQuantilesPkr": {
+      "Changan Karvaan": 249587.34,
+      "Daihatsu Cuore": 209495.05,
+      "Daihatsu Mira": 381083.07,
+      "Honda Br-V": 472282.18,
+      "Honda City": 293694.51,
+      "Honda Civic": 459590.51,
+      "Honda Vezel": 932029.41,
+      "Hyundai Santro": 220049.83,
+      "Kia Picanto": 277319.53,
+      "Kia Sportage": 881544.41,
+      "Mercedes Benz": 2720552.08,
+      "Suzuki Alto": 223216.29,
+      "Suzuki Baleno": 188300.77,
+      "Suzuki Bolan": 183491.8,
+      "Suzuki Cultus": 226649.59,
+      "Suzuki Every": 634957.29,
+      "Suzuki Khyber": 234446.35,
+      "Suzuki Liana": 442650.26,
+      "Suzuki Mehran": 155852.02,
+      "Suzuki Swift": 280127.83,
+      "Suzuki Wagon": 318023.4,
+      "Toyota Aqua": 961648.44,
+      "Toyota Corolla": 489260.26,
+      "Toyota Fortuner": 1349070.31,
+      "Toyota Hilux": 1012751.04,
+      "Toyota Land": 6069666.22,
+      "Toyota Passo": 380217.7,
+      "Toyota Prado": 3055854.17,
+      "Toyota Prius": 733910.42,
+      "Toyota Vitz": 389016.06,
+      "Toyota Yaris": 426404.28
+    },
+    "groupsWithDedicatedCalibration": 31,
+    "medianIntervalWidthPkr": 919181.02,
+    "averageIntervalWidthPkr": 1045454.3,
+    "note": "Uses held-out absolute residuals. Common make/model groups use their own calibration quantile; rare or unseen groups use the global quantile.",
+    "testEvaluationByCoverage": {
+      "0.7": {
+        "targetCoverage": 0.7,
+        "empiricalTestCoverage": 0.6823,
+        "averageIntervalWidthPkr": 618764.56,
+        "medianIntervalWidthPkr": 540396.36
+      },
+      "0.8": {
+        "targetCoverage": 0.8,
+        "empiricalTestCoverage": 0.7915,
+        "averageIntervalWidthPkr": 863942.58,
+        "medianIntervalWidthPkr": 751056.46
+      },
+      "0.85": {
+        "targetCoverage": 0.85,
+        "empiricalTestCoverage": 0.8397,
+        "averageIntervalWidthPkr": 1031893.61,
+        "medianIntervalWidthPkr": 919181.02
+      },
+      "0.9": {
+        "targetCoverage": 0.9,
+        "empiricalTestCoverage": 0.8917,
+        "averageIntervalWidthPkr": 1284352.45,
+        "medianIntervalWidthPkr": 1091043.22
+      }
+    },
+    "empiricalTestCoverage": 0.8397,
+    "testRows": 7218
+  },
+  "featureImportance": [
+    {
+      "feature": "engineCapacity",
+      "label": "Engine size",
+      "importance": 0.327815
+    },
+    {
+      "feature": "vehicleAge",
+      "label": "Vehicle age",
+      "importance": 0.149461
+    },
+    {
+      "feature": "modelYear",
+      "label": "Model year",
+      "importance": 0.143565
+    },
+    {
+      "feature": "engineCategory",
+      "label": "Engine category",
+      "importance": 0.089552
+    },
+    {
+      "feature": "transmission",
+      "label": "Transmission",
+      "importance": 0.077623
+    },
+    {
+      "feature": "model",
+      "label": "Model",
+      "importance": 0.047736
+    },
+    {
+      "feature": "makeModel",
+      "label": "Make and model",
+      "importance": 0.040632
+    },
+    {
+      "feature": "make",
+      "label": "Make",
+      "importance": 0.030575
+    },
+    {
+      "feature": "bodyType",
+      "label": "Body type",
+      "importance": 0.024625
+    },
+    {
+      "feature": "ageCategory",
+      "label": "Age category",
+      "importance": 0.024316
+    },
+    {
+      "feature": "fuelType",
+      "label": "Fuel type",
+      "importance": 0.017451
+    },
+    {
+      "feature": "assemblyType",
+      "label": "Assembly",
+      "importance": 0.015593
+    },
+    {
+      "feature": "registrationCity",
+      "label": "Registration city",
+      "importance": 0.004371
+    },
+    {
+      "feature": "mileage",
+      "label": "Mileage",
+      "importance": 0.002468
+    },
+    {
+      "feature": "listingCity",
+      "label": "Listing city",
+      "importance": 0.002141
+    },
+    {
+      "feature": "mileageCategory",
+      "label": "Mileage category",
+      "importance": 0.002076
+    },
+    {
+      "feature": "mileagePerYear",
+      "label": "Mileage per year",
+      "importance": 0.0
+    }
+  ],
+  "featuresUsed": [
+    "modelYear",
+    "mileage",
+    "engineCapacity",
+    "vehicleAge",
+    "mileagePerYear",
+    "make",
+    "model",
+    "makeModel",
+    "registrationCity",
+    "listingCity",
+    "fuelType",
+    "transmission",
+    "bodyType",
+    "assemblyType",
+    "engineCategory",
+    "ageCategory",
+    "mileageCategory"
+  ],
+  "actualVsPredictedSamples": [
+    {
+      "make": "Toyota",
+      "model": "Prado",
+      "year": 2006,
+      "mileage": 170000,
+      "actualPrice": 9500000,
+      "predictedPrice": 12691000,
+      "absoluteError": 3191000
+    },
+    {
+      "make": "Suzuki",
+      "model": "Mehran",
+      "year": 2004,
+      "mileage": 83502,
+      "actualPrice": 635000,
+      "predictedPrice": 621000,
+      "absoluteError": 14000
+    },
+    {
+      "make": "Honda",
+      "model": "Civic",
+      "year": 2007,
+      "mileage": 124000,
+      "actualPrice": 2850000,
+      "predictedPrice": 2593000,
+      "absoluteError": 257000
+    },
+    {
+      "make": "Toyota",
+      "model": "Corolla",
+      "year": 1998,
+      "mileage": 78000,
+      "actualPrice": 1200000,
+      "predictedPrice": 1379000,
+      "absoluteError": 179000
+    },
+    {
+      "make": "Suzuki",
+      "model": "Bolan",
+      "year": 2011,
+      "mileage": 95000,
+      "actualPrice": 800000,
+      "predictedPrice": 870000,
+      "absoluteError": 70000
+    },
+    {
+      "make": "Toyota",
+      "model": "Vitz",
+      "year": 2018,
+      "mileage": 45000,
+      "actualPrice": 4200000,
+      "predictedPrice": 3965000,
+      "absoluteError": 235000
+    },
+    {
+      "make": "Lexus",
+      "model": "Lx",
+      "year": 2018,
+      "mileage": 35000,
+      "actualPrice": 79000000,
+      "predictedPrice": 72548000,
+      "absoluteError": 6452000
+    },
+    {
+      "make": "Kia",
+      "model": "Picanto",
+      "year": 2021,
+      "mileage": 30118,
+      "actualPrice": 2820000,
+      "predictedPrice": 2843000,
+      "absoluteError": 23000
+    },
+    {
+      "make": "Toyota",
+      "model": "Corolla",
+      "year": 2015,
+      "mileage": 115000,
+      "actualPrice": 3640000,
+      "predictedPrice": 3377000,
+      "absoluteError": 263000
+    },
+    {
+      "make": "Toyota",
+      "model": "Premio",
+      "year": 2005,
+      "mileage": 100000,
+      "actualPrice": 2600000,
+      "predictedPrice": 2479000,
+      "absoluteError": 121000
+    }
+  ],
+  "featuresExcluded": {
+    "addref": "Identifier; excluded to prevent leakage.",
+    "colour": "High-cardinality optional field; excluded from the core maintained model.",
+    "condition": "Not present in the attached source.",
+    "inspectionScore": "Not present in the attached source."
+  },
+  "limitations": [
+    "The source contains listing prices rather than confirmed transaction prices.",
+    "The source has no listing date and its newest model year is used as a fixed feature-engineering reference year.",
+    "The model does not account for inflation or market movement after the dataset snapshot.",
+    "Condition and inspection features are excluded because this dataset does not supply them reliably.",
+    "Colour is excluded because it is high-cardinality and was not required for the core model."
+  ],
+  "artifactSizeBytes": 1040078804
+}

@@ -1,0 +1,3933 @@
+{
+  "version": 1,
+  "required": [
+    "make",
+    "model",
+    "year",
+    "mileage",
+    "engineCapacity"
+  ],
+  "fields": {
+    "make": {
+      "type": "string",
+      "minLength": 1,
+      "acceptedValuesSource": "inputCatalog.makes"
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1,
+      "acceptedValuesSource": "inputCatalog.makes[].models"
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 1990,
+      "maximum": 2022
+    },
+    "mileage": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "engineCapacity": {
+      "type": "number",
+      "minimum": 300,
+      "maximum": 10000
+    },
+    "transmission": {
+      "type": "string",
+      "acceptedValuesSource": "inputCatalog.transmissions"
+    },
+    "fuelType": {
+      "type": "string",
+      "acceptedValuesSource": "inputCatalog.fuelTypes"
+    },
+    "city": {
+      "type": "string",
+      "acceptedValuesSource": "inputCatalog.listingCities"
+    },
+    "registrationCity": {
+      "type": "string",
+      "acceptedValuesSource": "inputCatalog.registrationCities"
+    },
+    "bodyType": {
+      "type": "string",
+      "acceptedValuesSource": "inputCatalog.bodyTypes"
+    },
+    "assemblyType": {
+      "type": "string",
+      "acceptedValuesSource": "inputCatalog.assemblyTypes"
+    },
+    "variant": {
+      "type": "string",
+      "required": false
+    },
+    "condition": {
+      "type": "string",
+      "required": false,
+      "note": "Accepted by the API but not used by this dataset-trained model."
+    }
+  },
+  "unseenCategoryPolicy": "Unseen categories are accepted by the prediction pipeline. They use the model's unknown-category handling and the broader global conformal range.",
+  "catalog": {
+    "makes": [
+      {
+        "make": "Toyota",
+        "count": 23096,
+        "models": [
+          {
+            "model": "Corolla",
+            "count": 11946
+          },
+          {
+            "model": "Vitz",
+            "count": 1895
+          },
+          {
+            "model": "Yaris",
+            "count": 1225
+          },
+          {
+            "model": "Hilux",
+            "count": 1007
+          },
+          {
+            "model": "Prado",
+            "count": 978
+          },
+          {
+            "model": "Passo",
+            "count": 938
+          },
+          {
+            "model": "Fortuner",
+            "count": 734
+          },
+          {
+            "model": "Prius",
+            "count": 732
+          },
+          {
+            "model": "Land",
+            "count": 692
+          },
+          {
+            "model": "Aqua",
+            "count": 541
+          },
+          {
+            "model": "Surf",
+            "count": 303
+          },
+          {
+            "model": "Premio",
+            "count": 290
+          },
+          {
+            "model": "C-Hr",
+            "count": 201
+          },
+          {
+            "model": "Mark",
+            "count": 186
+          },
+          {
+            "model": "Hiace",
+            "count": 161
+          },
+          {
+            "model": "Belta",
+            "count": 160
+          },
+          {
+            "model": "Crown",
+            "count": 100
+          },
+          {
+            "model": "Raize",
+            "count": 99
+          },
+          {
+            "model": "Camry",
+            "count": 92
+          },
+          {
+            "model": "Sienta",
+            "count": 86
+          },
+          {
+            "model": "Platz",
+            "count": 85
+          },
+          {
+            "model": "Pixis",
+            "count": 79
+          },
+          {
+            "model": "Rush",
+            "count": 63
+          },
+          {
+            "model": "Probox",
+            "count": 52
+          },
+          {
+            "model": "Allion",
+            "count": 33
+          },
+          {
+            "model": "Rav4",
+            "count": 31
+          },
+          {
+            "model": "Duet",
+            "count": 29
+          },
+          {
+            "model": "Corona",
+            "count": 26
+          },
+          {
+            "model": "Estima",
+            "count": 24
+          },
+          {
+            "model": "Harrier",
+            "count": 24
+          },
+          {
+            "model": "Tank",
+            "count": 23
+          },
+          {
+            "model": "Voxy",
+            "count": 22
+          },
+          {
+            "model": "Aygo",
+            "count": 18
+          },
+          {
+            "model": "Roomy",
+            "count": 17
+          },
+          {
+            "model": "Ist",
+            "count": 14
+          },
+          {
+            "model": "Succeed",
+            "count": 14
+          },
+          {
+            "model": "Town",
+            "count": 14
+          },
+          {
+            "model": "Alphard",
+            "count": 13
+          },
+          {
+            "model": "Avanza",
+            "count": 13
+          },
+          {
+            "model": "Isis",
+            "count": 13
+          },
+          {
+            "model": "Wish",
+            "count": 13
+          },
+          {
+            "model": "Noah",
+            "count": 11
+          },
+          {
+            "model": "Tundra",
+            "count": 11
+          },
+          {
+            "model": "Cami",
+            "count": 9
+          },
+          {
+            "model": "Coaster",
+            "count": 8
+          },
+          {
+            "model": "Fj",
+            "count": 8
+          },
+          {
+            "model": "Esquire",
+            "count": 6
+          },
+          {
+            "model": "Iq",
+            "count": 6
+          },
+          {
+            "model": "Ractis",
+            "count": 6
+          },
+          {
+            "model": "Cressida",
+            "count": 5
+          },
+          {
+            "model": "Lucida",
+            "count": 5
+          },
+          {
+            "model": "Avensis",
+            "count": 3
+          },
+          {
+            "model": "Celica",
+            "count": 3
+          },
+          {
+            "model": "Lite",
+            "count": 3
+          },
+          {
+            "model": "Porte",
+            "count": 3
+          },
+          {
+            "model": "Auris",
+            "count": 2
+          },
+          {
+            "model": "B",
+            "count": 2
+          },
+          {
+            "model": "Carina",
+            "count": 2
+          },
+          {
+            "model": "Chaser",
+            "count": 2
+          },
+          {
+            "model": "Raum",
+            "count": 2
+          },
+          {
+            "model": "Sprinter",
+            "count": 2
+          },
+          {
+            "model": "Tacoma",
+            "count": 2
+          },
+          {
+            "model": "86",
+            "count": 1
+          },
+          {
+            "model": "Altezza",
+            "count": 1
+          },
+          {
+            "model": "Avalon",
+            "count": 1
+          },
+          {
+            "model": "Celsior",
+            "count": 1
+          },
+          {
+            "model": "Mr2",
+            "count": 1
+          },
+          {
+            "model": "Other",
+            "count": 1
+          },
+          {
+            "model": "Pickup",
+            "count": 1
+          },
+          {
+            "model": "Starlet",
+            "count": 1
+          },
+          {
+            "model": "Will",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Suzuki",
+        "count": 21162,
+        "models": [
+          {
+            "model": "Mehran",
+            "count": 4528
+          },
+          {
+            "model": "Cultus",
+            "count": 4407
+          },
+          {
+            "model": "Alto",
+            "count": 3983
+          },
+          {
+            "model": "Wagon",
+            "count": 2276
+          },
+          {
+            "model": "Swift",
+            "count": 1431
+          },
+          {
+            "model": "Bolan",
+            "count": 1172
+          },
+          {
+            "model": "Every",
+            "count": 625
+          },
+          {
+            "model": "Khyber",
+            "count": 592
+          },
+          {
+            "model": "Baleno",
+            "count": 502
+          },
+          {
+            "model": "Liana",
+            "count": 426
+          },
+          {
+            "model": "Ravi",
+            "count": 346
+          },
+          {
+            "model": "Margalla",
+            "count": 313
+          },
+          {
+            "model": "Jimny",
+            "count": 109
+          },
+          {
+            "model": "Hustler",
+            "count": 90
+          },
+          {
+            "model": "Potohar",
+            "count": 60
+          },
+          {
+            "model": "Apv",
+            "count": 59
+          },
+          {
+            "model": "Ciaz",
+            "count": 43
+          },
+          {
+            "model": "Vitara",
+            "count": 37
+          },
+          {
+            "model": "Carry",
+            "count": 32
+          },
+          {
+            "model": "Spacia",
+            "count": 26
+          },
+          {
+            "model": "Kei",
+            "count": 25
+          },
+          {
+            "model": "Xbee",
+            "count": 14
+          },
+          {
+            "model": "Mr",
+            "count": 13
+          },
+          {
+            "model": "Mega",
+            "count": 11
+          },
+          {
+            "model": "Cervo",
+            "count": 9
+          },
+          {
+            "model": "Palette",
+            "count": 8
+          },
+          {
+            "model": "Kizashi",
+            "count": 6
+          },
+          {
+            "model": "Ignis",
+            "count": 4
+          },
+          {
+            "model": "Celerio",
+            "count": 3
+          },
+          {
+            "model": "Fx",
+            "count": 2
+          },
+          {
+            "model": "S",
+            "count": 2
+          },
+          {
+            "model": "Solio",
+            "count": 2
+          },
+          {
+            "model": "Sx4",
+            "count": 2
+          },
+          {
+            "model": "Cappuccino",
+            "count": 1
+          },
+          {
+            "model": "Other",
+            "count": 1
+          },
+          {
+            "model": "Sj410",
+            "count": 1
+          },
+          {
+            "model": "Xl7",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Honda",
+        "count": 15702,
+        "models": [
+          {
+            "model": "Civic",
+            "count": 8009
+          },
+          {
+            "model": "City",
+            "count": 5087
+          },
+          {
+            "model": "Vezel",
+            "count": 735
+          },
+          {
+            "model": "Br-V",
+            "count": 599
+          },
+          {
+            "model": "N",
+            "count": 331
+          },
+          {
+            "model": "Accord",
+            "count": 243
+          },
+          {
+            "model": "Fit",
+            "count": 159
+          },
+          {
+            "model": "Freed",
+            "count": 93
+          },
+          {
+            "model": "Hr-V",
+            "count": 63
+          },
+          {
+            "model": "Insight",
+            "count": 63
+          },
+          {
+            "model": "Grace",
+            "count": 55
+          },
+          {
+            "model": "Life",
+            "count": 50
+          },
+          {
+            "model": "Cr-Z",
+            "count": 34
+          },
+          {
+            "model": "Airwave",
+            "count": 27
+          },
+          {
+            "model": "Acty",
+            "count": 26
+          },
+          {
+            "model": "Cr-V",
+            "count": 18
+          },
+          {
+            "model": "Spike",
+            "count": 18
+          },
+          {
+            "model": "Vamos",
+            "count": 16
+          },
+          {
+            "model": "Zest",
+            "count": 15
+          },
+          {
+            "model": "Cross",
+            "count": 13
+          },
+          {
+            "model": "Jade",
+            "count": 12
+          },
+          {
+            "model": "Inspire",
+            "count": 9
+          },
+          {
+            "model": "Stream",
+            "count": 7
+          },
+          {
+            "model": "S660",
+            "count": 4
+          },
+          {
+            "model": "Thats",
+            "count": 4
+          },
+          {
+            "model": "Beat",
+            "count": 2
+          },
+          {
+            "model": "Concerto",
+            "count": 2
+          },
+          {
+            "model": "Z",
+            "count": 2
+          },
+          {
+            "model": "Brio",
+            "count": 1
+          },
+          {
+            "model": "Integra",
+            "count": 1
+          },
+          {
+            "model": "Mobilio",
+            "count": 1
+          },
+          {
+            "model": "N-Van",
+            "count": 1
+          },
+          {
+            "model": "Other",
+            "count": 1
+          },
+          {
+            "model": "Today",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Daihatsu",
+        "count": 2841,
+        "models": [
+          {
+            "model": "Mira",
+            "count": 892
+          },
+          {
+            "model": "Cuore",
+            "count": 787
+          },
+          {
+            "model": "Move",
+            "count": 375
+          },
+          {
+            "model": "Hijet",
+            "count": 324
+          },
+          {
+            "model": "Terios",
+            "count": 102
+          },
+          {
+            "model": "Cast",
+            "count": 81
+          },
+          {
+            "model": "Boon",
+            "count": 59
+          },
+          {
+            "model": "Tanto",
+            "count": 47
+          },
+          {
+            "model": "Copen",
+            "count": 32
+          },
+          {
+            "model": "Esse",
+            "count": 31
+          },
+          {
+            "model": "Rocky",
+            "count": 27
+          },
+          {
+            "model": "Charade",
+            "count": 25
+          },
+          {
+            "model": "Taft",
+            "count": 23
+          },
+          {
+            "model": "Atrai",
+            "count": 9
+          },
+          {
+            "model": "Thor",
+            "count": 7
+          },
+          {
+            "model": "Sonica",
+            "count": 6
+          },
+          {
+            "model": "Storia",
+            "count": 3
+          },
+          {
+            "model": "Bezza",
+            "count": 2
+          },
+          {
+            "model": "Coo",
+            "count": 2
+          },
+          {
+            "model": "Wake",
+            "count": 2
+          },
+          {
+            "model": "Bego",
+            "count": 1
+          },
+          {
+            "model": "Feroza",
+            "count": 1
+          },
+          {
+            "model": "Other",
+            "count": 1
+          },
+          {
+            "model": "Sirion",
+            "count": 1
+          },
+          {
+            "model": "Xenia",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Kia",
+        "count": 1598,
+        "models": [
+          {
+            "model": "Sportage",
+            "count": 879
+          },
+          {
+            "model": "Picanto",
+            "count": 410
+          },
+          {
+            "model": "Sorento",
+            "count": 92
+          },
+          {
+            "model": "Classic",
+            "count": 79
+          },
+          {
+            "model": "Stonic",
+            "count": 68
+          },
+          {
+            "model": "Grand",
+            "count": 28
+          },
+          {
+            "model": "Spectra",
+            "count": 27
+          },
+          {
+            "model": "Pride",
+            "count": 8
+          },
+          {
+            "model": "Cerato",
+            "count": 2
+          },
+          {
+            "model": "Niro",
+            "count": 2
+          },
+          {
+            "model": "Frontier",
+            "count": 1
+          },
+          {
+            "model": "Other",
+            "count": 1
+          },
+          {
+            "model": "Rio",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Nissan",
+        "count": 1333,
+        "models": [
+          {
+            "model": "Dayz",
+            "count": 406
+          },
+          {
+            "model": "Sunny",
+            "count": 160
+          },
+          {
+            "model": "Clipper",
+            "count": 156
+          },
+          {
+            "model": "Note",
+            "count": 151
+          },
+          {
+            "model": "Moco",
+            "count": 81
+          },
+          {
+            "model": "Juke",
+            "count": 71
+          },
+          {
+            "model": "Ad",
+            "count": 52
+          },
+          {
+            "model": "Roox",
+            "count": 44
+          },
+          {
+            "model": "March",
+            "count": 33
+          },
+          {
+            "model": "Wingroad",
+            "count": 25
+          },
+          {
+            "model": "Otti",
+            "count": 20
+          },
+          {
+            "model": "Patrol",
+            "count": 18
+          },
+          {
+            "model": "Bluebird",
+            "count": 16
+          },
+          {
+            "model": "Navara",
+            "count": 12
+          },
+          {
+            "model": "Tiida",
+            "count": 12
+          },
+          {
+            "model": "Pino",
+            "count": 11
+          },
+          {
+            "model": "Kicks",
+            "count": 10
+          },
+          {
+            "model": "Serena",
+            "count": 10
+          },
+          {
+            "model": "Cefiro",
+            "count": 7
+          },
+          {
+            "model": "Safari",
+            "count": 6
+          },
+          {
+            "model": "X",
+            "count": 6
+          },
+          {
+            "model": "Caravan",
+            "count": 4
+          },
+          {
+            "model": "Qashqai",
+            "count": 4
+          },
+          {
+            "model": "350Z",
+            "count": 3
+          },
+          {
+            "model": "Kix",
+            "count": 3
+          },
+          {
+            "model": "Blue",
+            "count": 2
+          },
+          {
+            "model": "Skyline",
+            "count": 2
+          },
+          {
+            "model": "370Z",
+            "count": 1
+          },
+          {
+            "model": "Cedric",
+            "count": 1
+          },
+          {
+            "model": "Cube",
+            "count": 1
+          },
+          {
+            "model": "Nv350",
+            "count": 1
+          },
+          {
+            "model": "Other",
+            "count": 1
+          },
+          {
+            "model": "Pickup",
+            "count": 1
+          },
+          {
+            "model": "Primera",
+            "count": 1
+          },
+          {
+            "model": "Titan",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Hyundai",
+        "count": 1233,
+        "models": [
+          {
+            "model": "Santro",
+            "count": 560
+          },
+          {
+            "model": "Tucson",
+            "count": 298
+          },
+          {
+            "model": "Elantra",
+            "count": 163
+          },
+          {
+            "model": "Sonata",
+            "count": 122
+          },
+          {
+            "model": "Excel",
+            "count": 33
+          },
+          {
+            "model": "Shehzore",
+            "count": 28
+          },
+          {
+            "model": "H-100",
+            "count": 9
+          },
+          {
+            "model": "Terracan",
+            "count": 8
+          },
+          {
+            "model": "Grand",
+            "count": 3
+          },
+          {
+            "model": "Other",
+            "count": 2
+          },
+          {
+            "model": "Santa",
+            "count": 2
+          },
+          {
+            "model": "Accent",
+            "count": 1
+          },
+          {
+            "model": "Coupe",
+            "count": 1
+          },
+          {
+            "model": "Ioniq",
+            "count": 1
+          },
+          {
+            "model": "Kona",
+            "count": 1
+          },
+          {
+            "model": "Staria",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Mitsubishi",
+        "count": 993,
+        "models": [
+          {
+            "model": "Pajero",
+            "count": 345
+          },
+          {
+            "model": "Lancer",
+            "count": 293
+          },
+          {
+            "model": "Ek",
+            "count": 207
+          },
+          {
+            "model": "Mirage",
+            "count": 39
+          },
+          {
+            "model": "Minica",
+            "count": 32
+          },
+          {
+            "model": "Galant",
+            "count": 27
+          },
+          {
+            "model": "L200",
+            "count": 11
+          },
+          {
+            "model": "Rvr",
+            "count": 10
+          },
+          {
+            "model": "I",
+            "count": 8
+          },
+          {
+            "model": "Minicab",
+            "count": 7
+          },
+          {
+            "model": "Toppo",
+            "count": 5
+          },
+          {
+            "model": "L300",
+            "count": 3
+          },
+          {
+            "model": "Challenger",
+            "count": 2
+          },
+          {
+            "model": "Grandis",
+            "count": 2
+          },
+          {
+            "model": "Other",
+            "count": 1
+          },
+          {
+            "model": "Town",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Changan",
+        "count": 822,
+        "models": [
+          {
+            "model": "Karvaan",
+            "count": 365
+          },
+          {
+            "model": "Alsvin",
+            "count": 358
+          },
+          {
+            "model": "Oshan",
+            "count": 69
+          },
+          {
+            "model": "M9",
+            "count": 8
+          },
+          {
+            "model": "Gilgit",
+            "count": 4
+          },
+          {
+            "model": "Kaghan",
+            "count": 4
+          },
+          {
+            "model": "A800",
+            "count": 2
+          },
+          {
+            "model": "Chitral",
+            "count": 2
+          },
+          {
+            "model": "Cs35",
+            "count": 2
+          },
+          {
+            "model": "Cx70T",
+            "count": 2
+          },
+          {
+            "model": "Kalash",
+            "count": 2
+          },
+          {
+            "model": "M8",
+            "count": 2
+          },
+          {
+            "model": "Uni-T",
+            "count": 1
+          },
+          {
+            "model": "X5",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Mercedes",
+        "count": 540,
+        "models": [
+          {
+            "model": "Benz",
+            "count": 540
+          }
+        ]
+      },
+      {
+        "make": "MG",
+        "count": 423,
+        "models": [
+          {
+            "model": "Hs",
+            "count": 371
+          },
+          {
+            "model": "Zs",
+            "count": 49
+          },
+          {
+            "model": "3",
+            "count": 2
+          },
+          {
+            "model": "Rx8",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "FAW",
+        "count": 277,
+        "models": [
+          {
+            "model": "X-Pv",
+            "count": 117
+          },
+          {
+            "model": "V2",
+            "count": 116
+          },
+          {
+            "model": "Carrier",
+            "count": 35
+          },
+          {
+            "model": "Sirius",
+            "count": 7
+          },
+          {
+            "model": "Hongqi",
+            "count": 1
+          },
+          {
+            "model": "Jiaxing",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Audi",
+        "count": 220,
+        "models": [
+          {
+            "model": "A4",
+            "count": 70
+          },
+          {
+            "model": "A6",
+            "count": 50
+          },
+          {
+            "model": "A3",
+            "count": 37
+          },
+          {
+            "model": "A5",
+            "count": 37
+          },
+          {
+            "model": "Q7",
+            "count": 11
+          },
+          {
+            "model": "Q2",
+            "count": 5
+          },
+          {
+            "model": "Q3",
+            "count": 5
+          },
+          {
+            "model": "Tt",
+            "count": 2
+          },
+          {
+            "model": "A1",
+            "count": 1
+          },
+          {
+            "model": "A7",
+            "count": 1
+          },
+          {
+            "model": "A8",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "DFSK",
+        "count": 210,
+        "models": [
+          {
+            "model": "Glory",
+            "count": 207
+          },
+          {
+            "model": "Shahbaz",
+            "count": 2
+          },
+          {
+            "model": "C37",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Proton",
+        "count": 202,
+        "models": [
+          {
+            "model": "Saga",
+            "count": 106
+          },
+          {
+            "model": "X70",
+            "count": 90
+          },
+          {
+            "model": "Gen",
+            "count": 6
+          }
+        ]
+      },
+      {
+        "make": "BMW",
+        "count": 181,
+        "models": [
+          {
+            "model": "3",
+            "count": 52
+          },
+          {
+            "model": "5",
+            "count": 44
+          },
+          {
+            "model": "7",
+            "count": 40
+          },
+          {
+            "model": "X1",
+            "count": 23
+          },
+          {
+            "model": "X5",
+            "count": 12
+          },
+          {
+            "model": "X2",
+            "count": 2
+          },
+          {
+            "model": "X3",
+            "count": 2
+          },
+          {
+            "model": "1",
+            "count": 1
+          },
+          {
+            "model": "2",
+            "count": 1
+          },
+          {
+            "model": "6",
+            "count": 1
+          },
+          {
+            "model": "X7",
+            "count": 1
+          },
+          {
+            "model": "Z3",
+            "count": 1
+          },
+          {
+            "model": "Z4",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Prince",
+        "count": 179,
+        "models": [
+          {
+            "model": "Pearl",
+            "count": 136
+          },
+          {
+            "model": "K07",
+            "count": 35
+          },
+          {
+            "model": "K01",
+            "count": 8
+          }
+        ]
+      },
+      {
+        "make": "Mazda",
+        "count": 176,
+        "models": [
+          {
+            "model": "Flair",
+            "count": 44
+          },
+          {
+            "model": "Carol",
+            "count": 39
+          },
+          {
+            "model": "Rx8",
+            "count": 28
+          },
+          {
+            "model": "Scrum",
+            "count": 21
+          },
+          {
+            "model": "Titan",
+            "count": 14
+          },
+          {
+            "model": "626",
+            "count": 7
+          },
+          {
+            "model": "Cx3",
+            "count": 7
+          },
+          {
+            "model": "Axela",
+            "count": 4
+          },
+          {
+            "model": "B2200",
+            "count": 2
+          },
+          {
+            "model": "Mx",
+            "count": 2
+          },
+          {
+            "model": "Other",
+            "count": 2
+          },
+          {
+            "model": "1300",
+            "count": 1
+          },
+          {
+            "model": "323",
+            "count": 1
+          },
+          {
+            "model": "Azwagon",
+            "count": 1
+          },
+          {
+            "model": "Bongo",
+            "count": 1
+          },
+          {
+            "model": "Bt",
+            "count": 1
+          },
+          {
+            "model": "Cx7",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Chevrolet",
+        "count": 104,
+        "models": [
+          {
+            "model": "Joy",
+            "count": 33
+          },
+          {
+            "model": "Exclusive",
+            "count": 27
+          },
+          {
+            "model": "Optra",
+            "count": 26
+          },
+          {
+            "model": "Spark",
+            "count": 8
+          },
+          {
+            "model": "Aveo",
+            "count": 2
+          },
+          {
+            "model": "Corvette",
+            "count": 2
+          },
+          {
+            "model": "Colorado",
+            "count": 1
+          },
+          {
+            "model": "Cruze",
+            "count": 1
+          },
+          {
+            "model": "Equinox",
+            "count": 1
+          },
+          {
+            "model": "Matiz",
+            "count": 1
+          },
+          {
+            "model": "Silverado",
+            "count": 1
+          },
+          {
+            "model": "Suburban",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Lexus",
+        "count": 102,
+        "models": [
+          {
+            "model": "Lx",
+            "count": 37
+          },
+          {
+            "model": "Rx",
+            "count": 37
+          },
+          {
+            "model": "Ct200H",
+            "count": 18
+          },
+          {
+            "model": "Nx",
+            "count": 4
+          },
+          {
+            "model": "Ls",
+            "count": 3
+          },
+          {
+            "model": "Gs",
+            "count": 2
+          },
+          {
+            "model": "Sc",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Subaru",
+        "count": 85,
+        "models": [
+          {
+            "model": "Pleo",
+            "count": 40
+          },
+          {
+            "model": "Stella",
+            "count": 25
+          },
+          {
+            "model": "R2",
+            "count": 6
+          },
+          {
+            "model": "Impreza",
+            "count": 5
+          },
+          {
+            "model": "R1",
+            "count": 4
+          },
+          {
+            "model": "Sambar",
+            "count": 3
+          },
+          {
+            "model": "Dias",
+            "count": 1
+          },
+          {
+            "model": "Forester",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Daewoo",
+        "count": 67,
+        "models": [
+          {
+            "model": "Racer",
+            "count": 64
+          },
+          {
+            "model": "Cielo",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "make": "Peugeot",
+        "count": 65,
+        "models": [
+          {
+            "model": "2008",
+            "count": 64
+          },
+          {
+            "model": "206",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "United",
+        "count": 57,
+        "models": [
+          {
+            "model": "Bravo",
+            "count": 47
+          },
+          {
+            "model": "Alpha",
+            "count": 10
+          }
+        ]
+      },
+      {
+        "make": "Chery",
+        "count": 54,
+        "models": [
+          {
+            "model": "Tiggo",
+            "count": 36
+          },
+          {
+            "model": "Qq",
+            "count": 18
+          }
+        ]
+      },
+      {
+        "make": "Range",
+        "count": 52,
+        "models": [
+          {
+            "model": "Rover",
+            "count": 52
+          }
+        ]
+      },
+      {
+        "make": "BAIC",
+        "count": 45,
+        "models": [
+          {
+            "model": "Bj40",
+            "count": 44
+          },
+          {
+            "model": "Senova",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Ford",
+        "count": 45,
+        "models": [
+          {
+            "model": "F",
+            "count": 34
+          },
+          {
+            "model": "Other",
+            "count": 6
+          },
+          {
+            "model": "Ranger",
+            "count": 2
+          },
+          {
+            "model": "Fiesta",
+            "count": 1
+          },
+          {
+            "model": "Mustang",
+            "count": 1
+          },
+          {
+            "model": "Transit",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Isuzu",
+        "count": 43,
+        "models": [
+          {
+            "model": "D-Max",
+            "count": 23
+          },
+          {
+            "model": "Nkr",
+            "count": 15
+          },
+          {
+            "model": "Trooper",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "make": "Haval",
+        "count": 31,
+        "models": [
+          {
+            "model": "H6",
+            "count": 16
+          },
+          {
+            "model": "Jolion",
+            "count": 15
+          }
+        ]
+      },
+      {
+        "make": "Land",
+        "count": 28,
+        "models": [
+          {
+            "model": "Rover",
+            "count": 28
+          }
+        ]
+      },
+      {
+        "make": "Jeep",
+        "count": 27,
+        "models": [
+          {
+            "model": "Wrangler",
+            "count": 16
+          },
+          {
+            "model": "Cherokee",
+            "count": 7
+          },
+          {
+            "model": "Gladiator",
+            "count": 2
+          },
+          {
+            "model": "M",
+            "count": 1
+          },
+          {
+            "model": "Other",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Porsche",
+        "count": 20,
+        "models": [
+          {
+            "model": "Cayenne",
+            "count": 14
+          },
+          {
+            "model": "Panamera",
+            "count": 6
+          }
+        ]
+      },
+      {
+        "make": "Sogo",
+        "count": 19,
+        "models": [
+          {
+            "model": "Pickup",
+            "count": 18
+          },
+          {
+            "model": "Double",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Hino",
+        "count": 14,
+        "models": [
+          {
+            "model": "500",
+            "count": 10
+          },
+          {
+            "model": "Other",
+            "count": 3
+          },
+          {
+            "model": "300",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Ssangyong",
+        "count": 14,
+        "models": [
+          {
+            "model": "Stavic",
+            "count": 9
+          },
+          {
+            "model": "Rexton",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "make": "Daehan",
+        "count": 11,
+        "models": [
+          {
+            "model": "Shehzore",
+            "count": 11
+          }
+        ]
+      },
+      {
+        "make": "Jw",
+        "count": 11,
+        "models": [
+          {
+            "model": "Forland",
+            "count": 11
+          }
+        ]
+      },
+      {
+        "make": "JAC",
+        "count": 9,
+        "models": [
+          {
+            "model": "X200",
+            "count": 7
+          },
+          {
+            "model": "T6",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "make": "Gmc",
+        "count": 8,
+        "models": [
+          {
+            "model": "Sierra",
+            "count": 8
+          }
+        ]
+      },
+      {
+        "make": "Volkswagen",
+        "count": 8,
+        "models": [
+          {
+            "model": "Polo",
+            "count": 3
+          },
+          {
+            "model": "Golf",
+            "count": 2
+          },
+          {
+            "model": "Amarok",
+            "count": 1
+          },
+          {
+            "model": "Beetle",
+            "count": 1
+          },
+          {
+            "model": "Up",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Fiat",
+        "count": 7,
+        "models": [
+          {
+            "model": "Uno",
+            "count": 6
+          },
+          {
+            "model": "Bravo",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Mini",
+        "count": 7,
+        "models": [
+          {
+            "model": "Cooper",
+            "count": 7
+          }
+        ]
+      },
+      {
+        "make": "Power",
+        "count": 6,
+        "models": [
+          {
+            "model": "Mini",
+            "count": 6
+          }
+        ]
+      },
+      {
+        "make": "Jaguar",
+        "count": 5,
+        "models": [
+          {
+            "model": "S",
+            "count": 2
+          },
+          {
+            "model": "Xf",
+            "count": 2
+          },
+          {
+            "model": "Xjs",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Adam",
+        "count": 4,
+        "models": [
+          {
+            "model": "Revo",
+            "count": 4
+          }
+        ]
+      },
+      {
+        "make": "Cadillac",
+        "count": 4,
+        "models": [
+          {
+            "model": "Cts",
+            "count": 3
+          },
+          {
+            "model": "Escalade",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Dodge",
+        "count": 4,
+        "models": [
+          {
+            "model": "Ram",
+            "count": 3
+          },
+          {
+            "model": "Challenger",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Hummer",
+        "count": 4,
+        "models": [
+          {
+            "model": "H2",
+            "count": 3
+          },
+          {
+            "model": "H3",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Jmc",
+        "count": 4,
+        "models": [
+          {
+            "model": "Vigus",
+            "count": 3
+          },
+          {
+            "model": "New",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Master",
+        "count": 4,
+        "models": [
+          {
+            "model": "Foton",
+            "count": 4
+          }
+        ]
+      },
+      {
+        "make": "Bentley",
+        "count": 3,
+        "models": [
+          {
+            "model": "Continental",
+            "count": 2
+          },
+          {
+            "model": "Mulsanne",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Chrysler",
+        "count": 3,
+        "models": [
+          {
+            "model": "300",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "make": "Others",
+        "count": 3,
+        "models": [
+          {
+            "model": "Other",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "make": "Zotye",
+        "count": 3,
+        "models": [
+          {
+            "model": "Z100",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "make": "Austin",
+        "count": 2,
+        "models": [
+          {
+            "model": "Mini",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "make": "Datsun",
+        "count": 2,
+        "models": [
+          {
+            "model": "1000",
+            "count": 1
+          },
+          {
+            "model": "Cherry",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Volvo",
+        "count": 2,
+        "models": [
+          {
+            "model": "Other",
+            "count": 1
+          },
+          {
+            "model": "V40",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Buick",
+        "count": 1,
+        "models": [
+          {
+            "model": "Roadmaster",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Classic",
+        "count": 1,
+        "models": [
+          {
+            "model": "Cars",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Gac",
+        "count": 1,
+        "models": [
+          {
+            "model": "Gs3",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Mushtaq",
+        "count": 1,
+        "models": [
+          {
+            "model": "Ky10",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "make": "Roma",
+        "count": 1,
+        "models": [
+          {
+            "model": "Family",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "listingCities": [
+      {
+        "value": "Lahore",
+        "count": 15342
+      },
+      {
+        "value": "Karachi",
+        "count": 13373
+      },
+      {
+        "value": "Islamabad",
+        "count": 10481
+      },
+      {
+        "value": "Rawalpindi",
+        "count": 5076
+      },
+      {
+        "value": "Peshawar",
+        "count": 3426
+      },
+      {
+        "value": "Faisalabad",
+        "count": 2849
+      },
+      {
+        "value": "Multan",
+        "count": 2166
+      },
+      {
+        "value": "Gujranwala",
+        "count": 1879
+      },
+      {
+        "value": "Sialkot",
+        "count": 1246
+      },
+      {
+        "value": "Sargodha",
+        "count": 844
+      },
+      {
+        "value": "Hyderabad",
+        "count": 709
+      },
+      {
+        "value": "Abbottabad",
+        "count": 693
+      },
+      {
+        "value": "Bahawalpur",
+        "count": 658
+      },
+      {
+        "value": "Gujrat",
+        "count": 637
+      },
+      {
+        "value": "Mardan",
+        "count": 619
+      },
+      {
+        "value": "Quetta",
+        "count": 547
+      },
+      {
+        "value": "Wah",
+        "count": 532
+      },
+      {
+        "value": "Rahim",
+        "count": 371
+      },
+      {
+        "value": "Jhelum",
+        "count": 347
+      },
+      {
+        "value": "Sahiwal",
+        "count": 343
+      },
+      {
+        "value": "Mandi",
+        "count": 321
+      },
+      {
+        "value": "Chakwal",
+        "count": 313
+      },
+      {
+        "value": "Attock",
+        "count": 299
+      },
+      {
+        "value": "Sheikhupura",
+        "count": 284
+      },
+      {
+        "value": "Nowshera",
+        "count": 276
+      },
+      {
+        "value": "Mirpur",
+        "count": 272
+      },
+      {
+        "value": "Okara",
+        "count": 259
+      },
+      {
+        "value": "Swabi",
+        "count": 258
+      },
+      {
+        "value": "Mansehra",
+        "count": 242
+      },
+      {
+        "value": "D.G.Khan",
+        "count": 235
+      },
+      {
+        "value": "Mian",
+        "count": 232
+      },
+      {
+        "value": "Haripur",
+        "count": 216
+      },
+      {
+        "value": "Charsadda",
+        "count": 208
+      },
+      {
+        "value": "Jhang",
+        "count": 194
+      },
+      {
+        "value": "Sukkur",
+        "count": 189
+      },
+      {
+        "value": "Kohat",
+        "count": 163
+      },
+      {
+        "value": "Dera",
+        "count": 152
+      },
+      {
+        "value": "Kharian",
+        "count": 151
+      },
+      {
+        "value": "Vehari",
+        "count": 149
+      },
+      {
+        "value": "Burewala",
+        "count": 146
+      },
+      {
+        "value": "Taxila",
+        "count": 145
+      },
+      {
+        "value": "Hafizabad",
+        "count": 119
+      },
+      {
+        "value": "Toba",
+        "count": 119
+      },
+      {
+        "value": "Sadiqabad",
+        "count": 111
+      },
+      {
+        "value": "Layyah",
+        "count": 110
+      },
+      {
+        "value": "Kasur",
+        "count": 109
+      },
+      {
+        "value": "Gujar",
+        "count": 106
+      },
+      {
+        "value": "Daska",
+        "count": 106
+      },
+      {
+        "value": "Muzaffar",
+        "count": 101
+      },
+      {
+        "value": "Talagang",
+        "count": 99
+      },
+      {
+        "value": "Bannu",
+        "count": 96
+      },
+      {
+        "value": "Khanewal",
+        "count": 95
+      },
+      {
+        "value": "Bhakkar",
+        "count": 94
+      },
+      {
+        "value": "Chichawatni",
+        "count": 93
+      },
+      {
+        "value": "Bahawalnagar",
+        "count": 90
+      },
+      {
+        "value": "Khushab",
+        "count": 87
+      },
+      {
+        "value": "Muzaffarabad",
+        "count": 83
+      },
+      {
+        "value": "Chiniot",
+        "count": 83
+      },
+      {
+        "value": "Fateh",
+        "count": 79
+      },
+      {
+        "value": "Wazirabad",
+        "count": 77
+      },
+      {
+        "value": "Pak",
+        "count": 76
+      },
+      {
+        "value": "Arifwala",
+        "count": 75
+      },
+      {
+        "value": "Khanpur",
+        "count": 71
+      },
+      {
+        "value": "Narowal",
+        "count": 64
+      },
+      {
+        "value": "Kot",
+        "count": 64
+      },
+      {
+        "value": "Pattoki",
+        "count": 59
+      },
+      {
+        "value": "Chishtian",
+        "count": 57
+      },
+      {
+        "value": "Kotli",
+        "count": 56
+      },
+      {
+        "value": "Gojra",
+        "count": 54
+      },
+      {
+        "value": "Bhalwal",
+        "count": 53
+      },
+      {
+        "value": "Jauharabad",
+        "count": 53
+      },
+      {
+        "value": "Nankana",
+        "count": 52
+      },
+      {
+        "value": "Larkana",
+        "count": 47
+      },
+      {
+        "value": "Lodhran",
+        "count": 47
+      },
+      {
+        "value": "Lala",
+        "count": 47
+      },
+      {
+        "value": "Pir",
+        "count": 47
+      },
+      {
+        "value": "Depal",
+        "count": 46
+      },
+      {
+        "value": "Ahmed",
+        "count": 46
+      },
+      {
+        "value": "Jaranwala",
+        "count": 45
+      },
+      {
+        "value": "Hassan",
+        "count": 45
+      },
+      {
+        "value": "Kallar",
+        "count": 42
+      },
+      {
+        "value": "Kashmir",
+        "count": 42
+      },
+      {
+        "value": "Karak",
+        "count": 41
+      },
+      {
+        "value": "Hasilpur",
+        "count": 40
+      },
+      {
+        "value": "Muridke",
+        "count": 40
+      },
+      {
+        "value": "Haroonabad",
+        "count": 39
+      },
+      {
+        "value": "Kamra",
+        "count": 39
+      },
+      {
+        "value": "Shorkot",
+        "count": 38
+      },
+      {
+        "value": "Nawabshah",
+        "count": 38
+      },
+      {
+        "value": "Chowk",
+        "count": 38
+      },
+      {
+        "value": "Sambrial",
+        "count": 37
+      },
+      {
+        "value": "Phalia",
+        "count": 37
+      },
+      {
+        "value": "Jalalpur",
+        "count": 35
+      },
+      {
+        "value": "Swat",
+        "count": 35
+      },
+      {
+        "value": "Swatmingora",
+        "count": 34
+      },
+      {
+        "value": "Kamoke",
+        "count": 34
+      },
+      {
+        "value": "Akora",
+        "count": 33
+      },
+      {
+        "value": "Bhimber",
+        "count": 33
+      },
+      {
+        "value": "Taunsa",
+        "count": 32
+      },
+      {
+        "value": "Dinga",
+        "count": 31
+      },
+      {
+        "value": "Pasrur",
+        "count": 29
+      },
+      {
+        "value": "Dina",
+        "count": 28
+      },
+      {
+        "value": "Murree",
+        "count": 28
+      },
+      {
+        "value": "Liaqat",
+        "count": 28
+      },
+      {
+        "value": "Lakki",
+        "count": 27
+      },
+      {
+        "value": "Renala",
+        "count": 27
+      },
+      {
+        "value": "Bhera",
+        "count": 25
+      },
+      {
+        "value": "Kahuta",
+        "count": 25
+      },
+      {
+        "value": "Rawalakot",
+        "count": 25
+      },
+      {
+        "value": "Rawat",
+        "count": 24
+      },
+      {
+        "value": "Sumandari",
+        "count": 24
+      },
+      {
+        "value": "Kamalia",
+        "count": 24
+      },
+      {
+        "value": "Sohawa",
+        "count": 23
+      },
+      {
+        "value": "Khairpur",
+        "count": 22
+      },
+      {
+        "value": "Ghotki",
+        "count": 22
+      },
+      {
+        "value": "Jand",
+        "count": 22
+      },
+      {
+        "value": "Rajanpur",
+        "count": 22
+      },
+      {
+        "value": "Daharki",
+        "count": 21
+      },
+      {
+        "value": "Kabirwala",
+        "count": 21
+      },
+      {
+        "value": "Sarai",
+        "count": 21
+      },
+      {
+        "value": "Risalpur",
+        "count": 21
+      },
+      {
+        "value": "Jampur",
+        "count": 21
+      },
+      {
+        "value": "Abdul",
+        "count": 20
+      },
+      {
+        "value": "Shakargarh",
+        "count": 20
+      },
+      {
+        "value": "Farooqabad",
+        "count": 20
+      },
+      {
+        "value": "Pind",
+        "count": 20
+      },
+      {
+        "value": "Hazro",
+        "count": 20
+      },
+      {
+        "value": "Dadyal",
+        "count": 19
+      },
+      {
+        "value": "Zafarwal",
+        "count": 19
+      },
+      {
+        "value": "Tando",
+        "count": 19
+      },
+      {
+        "value": "Fort",
+        "count": 18
+      },
+      {
+        "value": "Takhtbai",
+        "count": 18
+      },
+      {
+        "value": "Dargai",
+        "count": 17
+      },
+      {
+        "value": "Raiwind",
+        "count": 17
+      },
+      {
+        "value": "Kotla",
+        "count": 17
+      },
+      {
+        "value": "Alipur",
+        "count": 17
+      },
+      {
+        "value": "Sangla",
+        "count": 17
+      },
+      {
+        "value": "Malakand",
+        "count": 17
+      },
+      {
+        "value": "Hayatabad",
+        "count": 16
+      },
+      {
+        "value": "Sara-E-Alamgir",
+        "count": 15
+      },
+      {
+        "value": "Melsi",
+        "count": 15
+      },
+      {
+        "value": "Pano",
+        "count": 15
+      },
+      {
+        "value": "Kala",
+        "count": 15
+      },
+      {
+        "value": "Kashmore",
+        "count": 15
+      },
+      {
+        "value": "Shah",
+        "count": 14
+      },
+      {
+        "value": "Mangla",
+        "count": 14
+      },
+      {
+        "value": "Chunian",
+        "count": 14
+      },
+      {
+        "value": "Sillanwali",
+        "count": 14
+      },
+      {
+        "value": "Rahwali",
+        "count": 13
+      },
+      {
+        "value": "Hangu",
+        "count": 13
+      },
+      {
+        "value": "Bat",
+        "count": 13
+      },
+      {
+        "value": "Dunia",
+        "count": 13
+      },
+      {
+        "value": "Shuja",
+        "count": 13
+      },
+      {
+        "value": "Tandiliyawala",
+        "count": 12
+      },
+      {
+        "value": "Topi",
+        "count": 11
+      },
+      {
+        "value": "Chenab",
+        "count": 11
+      },
+      {
+        "value": "Malakwal",
+        "count": 11
+      },
+      {
+        "value": "Balakot",
+        "count": 11
+      },
+      {
+        "value": "Sanghar",
+        "count": 11
+      },
+      {
+        "value": "Mandra",
+        "count": 11
+      },
+      {
+        "value": "Thatta",
+        "count": 10
+      },
+      {
+        "value": "Yazman",
+        "count": 10
+      },
+      {
+        "value": "Jehangira",
+        "count": 10
+      },
+      {
+        "value": "Jacobabad",
+        "count": 10
+      },
+      {
+        "value": "Jatoi",
+        "count": 10
+      },
+      {
+        "value": "Dadu",
+        "count": 10
+      },
+      {
+        "value": "Qila",
+        "count": 10
+      },
+      {
+        "value": "Dir",
+        "count": 10
+      },
+      {
+        "value": "Badin",
+        "count": 10
+      },
+      {
+        "value": "Mingora",
+        "count": 9
+      },
+      {
+        "value": "Minchanabad",
+        "count": 9
+      },
+      {
+        "value": "Jahaniya",
+        "count": 9
+      },
+      {
+        "value": "Chowha",
+        "count": 9
+      },
+      {
+        "value": "Shahdara",
+        "count": 8
+      },
+      {
+        "value": "Garh",
+        "count": 8
+      },
+      {
+        "value": "Havali",
+        "count": 8
+      },
+      {
+        "value": "Buner",
+        "count": 8
+      },
+      {
+        "value": "Lower",
+        "count": 8
+      },
+      {
+        "value": "Mamu",
+        "count": 7
+      },
+      {
+        "value": "Satiana",
+        "count": 7
+      },
+      {
+        "value": "Allahabad",
+        "count": 7
+      },
+      {
+        "value": "Karore",
+        "count": 7
+      },
+      {
+        "value": "Chawinda",
+        "count": 7
+      },
+      {
+        "value": "Samanabad",
+        "count": 7
+      },
+      {
+        "value": "Chak",
+        "count": 7
+      },
+      {
+        "value": "Piplan",
+        "count": 7
+      },
+      {
+        "value": "Ghazi",
+        "count": 6
+      },
+      {
+        "value": "Gambat",
+        "count": 6
+      },
+      {
+        "value": "Chaklala",
+        "count": 6
+      },
+      {
+        "value": "Hawilian",
+        "count": 6
+      },
+      {
+        "value": "Narang",
+        "count": 6
+      },
+      {
+        "value": "Jandanwala",
+        "count": 6
+      },
+      {
+        "value": "Dijkot",
+        "count": 6
+      },
+      {
+        "value": "Darya",
+        "count": 6
+      },
+      {
+        "value": "Head",
+        "count": 5
+      },
+      {
+        "value": "Kotri",
+        "count": 5
+      },
+      {
+        "value": "Shikar",
+        "count": 5
+      },
+      {
+        "value": "Kandiaro",
+        "count": 5
+      },
+      {
+        "value": "Zahir",
+        "count": 5
+      },
+      {
+        "value": "Tarbela",
+        "count": 5
+      },
+      {
+        "value": "Chaksawari",
+        "count": 5
+      },
+      {
+        "value": "Gaggo",
+        "count": 5
+      },
+      {
+        "value": "Jamshoro",
+        "count": 5
+      },
+      {
+        "value": "Morgah",
+        "count": 5
+      },
+      {
+        "value": "Hub-Balochistan",
+        "count": 5
+      },
+      {
+        "value": "Khurrianwala",
+        "count": 5
+      },
+      {
+        "value": "Khudian",
+        "count": 5
+      },
+      {
+        "value": "Chashma",
+        "count": 5
+      },
+      {
+        "value": "Ranipur",
+        "count": 4
+      },
+      {
+        "value": "Rajana",
+        "count": 4
+      },
+      {
+        "value": "Kunjah",
+        "count": 4
+      },
+      {
+        "value": "Phool",
+        "count": 4
+      },
+      {
+        "value": "Tibba",
+        "count": 4
+      },
+      {
+        "value": "Esa",
+        "count": 4
+      },
+      {
+        "value": "Umer",
+        "count": 4
+      },
+      {
+        "value": "Quaid",
+        "count": 4
+      },
+      {
+        "value": "Faqirwali",
+        "count": 4
+      },
+      {
+        "value": "Mithi",
+        "count": 4
+      },
+      {
+        "value": "Hujra",
+        "count": 4
+      },
+      {
+        "value": "Kallur",
+        "count": 4
+      },
+      {
+        "value": "Hattar",
+        "count": 4
+      },
+      {
+        "value": "Bhai",
+        "count": 4
+      },
+      {
+        "value": "Khanqah",
+        "count": 4
+      },
+      {
+        "value": "Sibi",
+        "count": 4
+      },
+      {
+        "value": "Kandh",
+        "count": 3
+      },
+      {
+        "value": "Mehrabpur",
+        "count": 3
+      },
+      {
+        "value": "Gilgit",
+        "count": 3
+      },
+      {
+        "value": "Gharo",
+        "count": 3
+      },
+      {
+        "value": "Tank",
+        "count": 3
+      },
+      {
+        "value": "Khangarh",
+        "count": 3
+      },
+      {
+        "value": "Kunri",
+        "count": 3
+      },
+      {
+        "value": "Hala",
+        "count": 3
+      },
+      {
+        "value": "Matli",
+        "count": 3
+      },
+      {
+        "value": "Khan",
+        "count": 3
+      },
+      {
+        "value": "Shahdad",
+        "count": 3
+      },
+      {
+        "value": "Skardu",
+        "count": 3
+      },
+      {
+        "value": "Manga",
+        "count": 3
+      },
+      {
+        "value": "Basirpur",
+        "count": 3
+      },
+      {
+        "value": "Shahpur",
+        "count": 3
+      },
+      {
+        "value": "Noshero",
+        "count": 3
+      },
+      {
+        "value": "Jatlaan",
+        "count": 2
+      },
+      {
+        "value": "Karoor",
+        "count": 2
+      },
+      {
+        "value": "Doltala",
+        "count": 2
+      },
+      {
+        "value": "Kamber",
+        "count": 2
+      },
+      {
+        "value": "Saidu",
+        "count": 2
+      },
+      {
+        "value": "Toru",
+        "count": 2
+      },
+      {
+        "value": "Other",
+        "count": 2
+      },
+      {
+        "value": "Jamrud",
+        "count": 2
+      },
+      {
+        "value": "Buchay",
+        "count": 2
+      },
+      {
+        "value": "Digri",
+        "count": 2
+      },
+      {
+        "value": "Khuzdar",
+        "count": 2
+      },
+      {
+        "value": "Nilore",
+        "count": 2
+      },
+      {
+        "value": "Laliah",
+        "count": 2
+      },
+      {
+        "value": "Ubauro",
+        "count": 2
+      },
+      {
+        "value": "Guddu",
+        "count": 2
+      },
+      {
+        "value": "Bhuawana",
+        "count": 2
+      },
+      {
+        "value": "Moro",
+        "count": 2
+      },
+      {
+        "value": "Shamsabad",
+        "count": 2
+      },
+      {
+        "value": "More",
+        "count": 1
+      },
+      {
+        "value": "Adda",
+        "count": 1
+      },
+      {
+        "value": "Daulatpur",
+        "count": 1
+      },
+      {
+        "value": "Gwadar",
+        "count": 1
+      },
+      {
+        "value": "New",
+        "count": 1
+      },
+      {
+        "value": "Sikandarabad",
+        "count": 1
+      },
+      {
+        "value": "Ugoke",
+        "count": 1
+      },
+      {
+        "value": "Harappa",
+        "count": 1
+      },
+      {
+        "value": "Bhan",
+        "count": 1
+      },
+      {
+        "value": "Jhand",
+        "count": 1
+      },
+      {
+        "value": "Sehwan",
+        "count": 1
+      },
+      {
+        "value": "Sara",
+        "count": 1
+      },
+      {
+        "value": "Kumbh",
+        "count": 1
+      },
+      {
+        "value": "Naseerabad",
+        "count": 1
+      },
+      {
+        "value": "Iskandarabad",
+        "count": 1
+      },
+      {
+        "value": "Hattian",
+        "count": 1
+      },
+      {
+        "value": "Wahn",
+        "count": 1
+      },
+      {
+        "value": "Qasba",
+        "count": 1
+      },
+      {
+        "value": "Qazi",
+        "count": 1
+      },
+      {
+        "value": "Gakhar",
+        "count": 1
+      },
+      {
+        "value": "Lasbela",
+        "count": 1
+      },
+      {
+        "value": "Amangarh",
+        "count": 1
+      },
+      {
+        "value": "Kacha",
+        "count": 1
+      },
+      {
+        "value": "Shahdadpur",
+        "count": 1
+      },
+      {
+        "value": "Khandabad",
+        "count": 1
+      },
+      {
+        "value": "Benz",
+        "count": 1
+      },
+      {
+        "value": "Klaske",
+        "count": 1
+      },
+      {
+        "value": "Ali",
+        "count": 1
+      },
+      {
+        "value": "Khewra",
+        "count": 1
+      },
+      {
+        "value": "Noudero",
+        "count": 1
+      },
+      {
+        "value": "Qalandarabad",
+        "count": 1
+      },
+      {
+        "value": "Gadoon",
+        "count": 1
+      },
+      {
+        "value": "Donga",
+        "count": 1
+      },
+      {
+        "value": "Naukot",
+        "count": 1
+      },
+      {
+        "value": "Khyber",
+        "count": 1
+      }
+    ],
+    "registrationCities": [
+      {
+        "value": "Lahore",
+        "count": 18095
+      },
+      {
+        "value": "Islamabad",
+        "count": 18038
+      },
+      {
+        "value": "Karachi",
+        "count": 10036
+      },
+      {
+        "value": "Sindh",
+        "count": 9469
+      },
+      {
+        "value": "Punjab",
+        "count": 8804
+      },
+      {
+        "value": "Unregistered",
+        "count": 3352
+      },
+      {
+        "value": "Rawalpindi",
+        "count": 916
+      },
+      {
+        "value": "Multan",
+        "count": 786
+      },
+      {
+        "value": "Faisalabad",
+        "count": 722
+      },
+      {
+        "value": "Peshawar",
+        "count": 626
+      },
+      {
+        "value": "Sialkot",
+        "count": 234
+      },
+      {
+        "value": "Gujranwala",
+        "count": 134
+      },
+      {
+        "value": "Bahawalpur",
+        "count": 124
+      },
+      {
+        "value": "Sargodha",
+        "count": 71
+      },
+      {
+        "value": "Quetta",
+        "count": 68
+      },
+      {
+        "value": "Abbottabad",
+        "count": 58
+      },
+      {
+        "value": "Mirpur A.K.",
+        "count": 50
+      },
+      {
+        "value": "Sahiwal",
+        "count": 45
+      },
+      {
+        "value": "Swat",
+        "count": 44
+      },
+      {
+        "value": "Rahim Yar Khan",
+        "count": 44
+      },
+      {
+        "value": "Hyderabad",
+        "count": 43
+      },
+      {
+        "value": "Mardan",
+        "count": 32
+      },
+      {
+        "value": "Gujrat",
+        "count": 31
+      },
+      {
+        "value": "Jhelum",
+        "count": 25
+      },
+      {
+        "value": "Nowshera",
+        "count": 17
+      },
+      {
+        "value": "Mansehra",
+        "count": 17
+      },
+      {
+        "value": "Vehari",
+        "count": 17
+      },
+      {
+        "value": "D.G.Khan",
+        "count": 16
+      },
+      {
+        "value": "Muzaffarabad",
+        "count": 15
+      },
+      {
+        "value": "Sheikhupura",
+        "count": 14
+      },
+      {
+        "value": "Kohat",
+        "count": 12
+      },
+      {
+        "value": "Dera Ismail Khan",
+        "count": 11
+      },
+      {
+        "value": "Khanewal",
+        "count": 11
+      },
+      {
+        "value": "Attock",
+        "count": 10
+      },
+      {
+        "value": "Sukkur",
+        "count": 8
+      },
+      {
+        "value": "Bahawalnagar",
+        "count": 8
+      },
+      {
+        "value": "Chakwal",
+        "count": 8
+      },
+      {
+        "value": "Jhang",
+        "count": 7
+      },
+      {
+        "value": "Okara",
+        "count": 7
+      },
+      {
+        "value": "Bannu",
+        "count": 6
+      },
+      {
+        "value": "Muzaffar Gargh",
+        "count": 6
+      },
+      {
+        "value": "Haripur",
+        "count": 6
+      },
+      {
+        "value": "Kasur",
+        "count": 6
+      },
+      {
+        "value": "Sadiqabad",
+        "count": 5
+      },
+      {
+        "value": "Mian Wali",
+        "count": 5
+      },
+      {
+        "value": "Kashmir",
+        "count": 5
+      },
+      {
+        "value": "Gilgit",
+        "count": 5
+      },
+      {
+        "value": "Bhakkar",
+        "count": 5
+      },
+      {
+        "value": "Wah Cantt",
+        "count": 5
+      },
+      {
+        "value": "Toba Tek Singh",
+        "count": 3
+      },
+      {
+        "value": "Fateh Jang",
+        "count": 3
+      },
+      {
+        "value": "Swabi",
+        "count": 3
+      },
+      {
+        "value": "Lasbela",
+        "count": 3
+      },
+      {
+        "value": "Kotli Ak",
+        "count": 3
+      },
+      {
+        "value": "Iskandarabad",
+        "count": 3
+      },
+      {
+        "value": "Khushab",
+        "count": 3
+      },
+      {
+        "value": "Layyah",
+        "count": 3
+      },
+      {
+        "value": "Rawalakot",
+        "count": 3
+      },
+      {
+        "value": "Mirpur Khas",
+        "count": 2
+      },
+      {
+        "value": "Nawabshah",
+        "count": 2
+      },
+      {
+        "value": "Shorkot",
+        "count": 2
+      },
+      {
+        "value": "Mandi Bahauddin",
+        "count": 2
+      },
+      {
+        "value": "Adda Jahan Khan",
+        "count": 2
+      },
+      {
+        "value": "Larkana",
+        "count": 2
+      },
+      {
+        "value": "Karak",
+        "count": 2
+      },
+      {
+        "value": "Chiniot",
+        "count": 2
+      },
+      {
+        "value": "Abdul Hakeem",
+        "count": 2
+      },
+      {
+        "value": "Phalia",
+        "count": 2
+      },
+      {
+        "value": "Jandanwala",
+        "count": 2
+      },
+      {
+        "value": "Hazro",
+        "count": 2
+      },
+      {
+        "value": "Kharian",
+        "count": 2
+      },
+      {
+        "value": "Hafizabad",
+        "count": 2
+      },
+      {
+        "value": "Dir",
+        "count": 2
+      },
+      {
+        "value": "Charsadda",
+        "count": 2
+      },
+      {
+        "value": "Narowal",
+        "count": 2
+      },
+      {
+        "value": "Ghazi",
+        "count": 2
+      },
+      {
+        "value": "Mingora",
+        "count": 1
+      },
+      {
+        "value": "Farooqabad",
+        "count": 1
+      },
+      {
+        "value": "Gharo",
+        "count": 1
+      },
+      {
+        "value": "Zafarwal",
+        "count": 1
+      },
+      {
+        "value": "Thatta",
+        "count": 1
+      },
+      {
+        "value": "Gujar Khan",
+        "count": 1
+      },
+      {
+        "value": "Qila Deedar Singh",
+        "count": 1
+      },
+      {
+        "value": "Tando Allah Yar",
+        "count": 1
+      },
+      {
+        "value": "Sara-E-Alamgir",
+        "count": 1
+      },
+      {
+        "value": "Chishtian",
+        "count": 1
+      },
+      {
+        "value": "Wazirabad",
+        "count": 1
+      },
+      {
+        "value": "Jatoi",
+        "count": 1
+      },
+      {
+        "value": "Daska",
+        "count": 1
+      },
+      {
+        "value": "Pir Mahal",
+        "count": 1
+      },
+      {
+        "value": "Badin",
+        "count": 1
+      },
+      {
+        "value": "Bhai Pheru",
+        "count": 1
+      },
+      {
+        "value": "Lakki Marwat",
+        "count": 1
+      },
+      {
+        "value": "Pindi Gheb",
+        "count": 1
+      },
+      {
+        "value": "Pattoki",
+        "count": 1
+      },
+      {
+        "value": "Hangu",
+        "count": 1
+      },
+      {
+        "value": "Skardu",
+        "count": 1
+      },
+      {
+        "value": "Haroonabad",
+        "count": 1
+      },
+      {
+        "value": "Adda Shaiwala",
+        "count": 1
+      },
+      {
+        "value": "Basirpur",
+        "count": 1
+      },
+      {
+        "value": "Jacobabad",
+        "count": 1
+      },
+      {
+        "value": "Batang",
+        "count": 1
+      },
+      {
+        "value": "Balakot",
+        "count": 1
+      },
+      {
+        "value": "Kotla",
+        "count": 1
+      },
+      {
+        "value": "Sajawal",
+        "count": 1
+      },
+      {
+        "value": "Kamoke",
+        "count": 1
+      },
+      {
+        "value": "Burewala",
+        "count": 1
+      },
+      {
+        "value": "Dera Allah Yar",
+        "count": 1
+      },
+      {
+        "value": "Mian Channu",
+        "count": 1
+      },
+      {
+        "value": "Noshero Feroze",
+        "count": 1
+      },
+      {
+        "value": "Ahmed Pur East",
+        "count": 1
+      },
+      {
+        "value": "Hattar",
+        "count": 1
+      },
+      {
+        "value": "Hunza",
+        "count": 1
+      }
+    ],
+    "bodyTypes": [
+      {
+        "value": "Sedan",
+        "count": 28937
+      },
+      {
+        "value": "Hatchback",
+        "count": 23826
+      },
+      {
+        "value": "Unknown",
+        "count": 7462
+      },
+      {
+        "value": "Suv",
+        "count": 4418
+      },
+      {
+        "value": "Crossover",
+        "count": 1780
+      },
+      {
+        "value": "Minivan",
+        "count": 1289
+      },
+      {
+        "value": "Mpv",
+        "count": 744
+      },
+      {
+        "value": "Double Cabin",
+        "count": 729
+      },
+      {
+        "value": "Van",
+        "count": 677
+      },
+      {
+        "value": "Compact Sedan",
+        "count": 648
+      },
+      {
+        "value": "Microvan",
+        "count": 512
+      },
+      {
+        "value": "Pickup",
+        "count": 443
+      },
+      {
+        "value": "Station Wagon",
+        "count": 227
+      },
+      {
+        "value": "Compact Suv",
+        "count": 225
+      },
+      {
+        "value": "Coupe",
+        "count": 71
+      },
+      {
+        "value": "High Roof",
+        "count": 66
+      },
+      {
+        "value": "Convertible",
+        "count": 45
+      },
+      {
+        "value": "Truck",
+        "count": 37
+      },
+      {
+        "value": "Single Cabin",
+        "count": 25
+      },
+      {
+        "value": "Mini Vehicles",
+        "count": 8
+      },
+      {
+        "value": "Off-Road",
+        "count": 6
+      },
+      {
+        "value": "Compact Hatchback",
+        "count": 4
+      }
+    ],
+    "fuelTypes": [
+      {
+        "value": "Petrol",
+        "count": 66063
+      },
+      {
+        "value": "Diesel",
+        "count": 2756
+      },
+      {
+        "value": "Hybrid",
+        "count": 2738
+      },
+      {
+        "value": "Unknown",
+        "count": 622
+      }
+    ],
+    "transmissions": [
+      {
+        "value": "Auto",
+        "count": 39600
+      },
+      {
+        "value": "Manual",
+        "count": 32579
+      }
+    ],
+    "assemblyTypes": [
+      {
+        "value": "Unknown",
+        "count": 50021
+      },
+      {
+        "value": "Imported",
+        "count": 22158
+      }
+    ],
+    "yearRange": {
+      "min": 1990,
+      "max": 2022
+    },
+    "engineRange": {
+      "min": 300,
+      "max": 10000
+    },
+    "mileageRange": {
+      "min": 1,
+      "max": 1000000
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "purpose": "Exploratory validation of raw-price versus log1p(price) targets before final model selection. The final untouched test partition was not used.",
+  "model": "CatBoostRegressor(depth=7, iterations=1000, learning_rate=0.06, MAE objective)",
+  "split": "Fixed seed 42 development train/validation split",
+  "results": {
+    "rawPrice": { "mae": 373006.33, "rmse": 1473193.22, "r2": 0.9123, "bestIteration": 999 },
+    "log1pPrice": { "mae": 375210.41, "rmse": 1687643.94, "r2": 0.8849, "bestIteration": 998 }
+  },
+  "decision": "Log transform was not selected because it increased MAE and RMSE on the validation data."
+}
