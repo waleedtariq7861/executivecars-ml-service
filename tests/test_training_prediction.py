@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pandas as pd
@@ -73,3 +74,21 @@ def test_training_saves_loadable_model_and_predicts(monkeypatch, tmp_path: Path)
     assert registered["provenance"]["datasetName"] == "Synthetic training records"
     assert registered["provenance"]["sourceCategory"] == "Unit-test fixture"
     assert registered["provenance"]["datasetFingerprint"] == bundle["datasetFingerprint"]
+
+
+def test_list_models_does_not_attach_root_metadata_to_versionless_entry(monkeypatch, tmp_path: Path):
+    monkeypatch.setenv("MODEL_DIR", str(tmp_path))
+    (tmp_path / "registry.json").write_text(json.dumps({
+        "activeVersion": None,
+        "previousVersion": None,
+        "versions": [{"modelName": "legacy", "datasetSize": 12}],
+    }), encoding="utf-8")
+    (tmp_path / "metadata.json").write_text(json.dumps({
+        "datasetFile": "unrelated-root-data.csv",
+        "datasetSize": 999,
+    }), encoding="utf-8")
+
+    registered = training.list_models()["versions"][0]
+
+    assert registered["provenance"]["datasetName"] == "Legacy metadata unavailable"
+    assert registered["provenance"]["datasetRows"] == 12

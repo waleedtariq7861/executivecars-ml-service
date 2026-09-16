@@ -417,13 +417,15 @@ def list_models() -> dict[str, Any]:
     versions = []
     for entry in registry.get("versions", []):
         enriched = dict(entry)
-        metadata_path = model_root() / str(entry.get("version", "")) / "metadata.json"
         metadata: dict[str, Any] = {}
-        if metadata_path.exists():
-            try:
-                metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
-            except (OSError, json.JSONDecodeError):
-                metadata = {}
+        version = entry.get("version")
+        if isinstance(version, str) and version.strip():
+            metadata_path = model_root() / version / "metadata.json"
+            if metadata_path.exists():
+                try:
+                    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+                except (OSError, json.JSONDecodeError):
+                    metadata = {}
         recorded = metadata.get("datasetProvenance") or {}
         enriched["provenance"] = {
             "datasetName": recorded.get("datasetName") or metadata.get("datasetFile") or "Legacy metadata unavailable",
