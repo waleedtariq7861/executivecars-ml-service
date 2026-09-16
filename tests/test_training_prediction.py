@@ -42,7 +42,12 @@ def test_training_saves_loadable_model_and_predicts(monkeypatch, tmp_path: Path)
         "median_baseline": Pipeline([("preprocess", training._one_hot_preprocessor()), ("model", DummyRegressor(strategy="median"))]),
         "ridge_regression": Pipeline([("preprocess", training._one_hot_preprocessor()), ("model", Ridge(alpha=10.0))]),
     })
-    result = training.train_from_frame(pd.DataFrame.from_records(records()))
+    provenance = {
+        "datasetName": "Synthetic training records",
+        "sourceCategory": "Unit-test fixture",
+        "sources": [{"source": "Synthetic unit-test fixture", "rows": 45}],
+    }
+    result = training.train_from_frame(pd.DataFrame.from_records(records()), provenance=provenance)
     assert result["metrics"]["mae"] >= 0
     bundle = training.load_active_bundle()
     assert bundle is not None
@@ -64,3 +69,7 @@ def test_training_saves_loadable_model_and_predicts(monkeypatch, tmp_path: Path)
     assert schema_path.exists()
     assert result["splitSummary"]["crossValidationFolds"] == 3
     assert len((tmp_path / "reports" / "model_evaluation.json").read_text()) > 0
+    registered = training.list_models()["versions"][0]
+    assert registered["provenance"]["datasetName"] == "Synthetic training records"
+    assert registered["provenance"]["sourceCategory"] == "Unit-test fixture"
+    assert registered["provenance"]["datasetFingerprint"] == bundle["datasetFingerprint"]

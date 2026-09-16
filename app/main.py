@@ -80,7 +80,7 @@ def prediction(payload: PredictionInput) -> dict:
 @app.post("/train", dependencies=[Depends(require_service_key)])
 async def train(payload: TrainingRequest) -> dict:
     try:
-        result = await run_in_threadpool(train_from_records, payload.records)
+        result = await run_in_threadpool(train_from_records, payload.records, payload.provenance)
         reload_bundle()
         return result
     except ValueError as error:
