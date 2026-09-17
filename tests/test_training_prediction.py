@@ -92,3 +92,40 @@ def test_list_models_does_not_attach_root_metadata_to_versionless_entry(monkeypa
 
     assert registered["provenance"]["datasetName"] == "Legacy metadata unavailable"
     assert registered["provenance"]["datasetRows"] == 12
+
+
+def test_activation_and_rollback_update_only_a_temporary_registry(monkeypatch, tmp_path: Path):
+    monkeypatch.setenv("MODEL_DIR", str(tmp_path))
+    for version in ("model-v1", "model-v2"):
+        version_dir = tmp_path / version
+        version_dir.mkdir()
+        (version_dir / "model.joblib").write_bytes(b"synthetic registry fixture")
+    initial = {
+        "activeVersion": "model-v1",
+        "previousVersion": None,
+        "versions": [{"version": "model-v2"}, {"version": "model-v1"}],
+    }
+    (tmp_path / "registry.json").write_text(json.dumps(initial), encoding="utf-8")
+
+    activated = training.activate_model("model-v2")
+    assert activated["activeVersion"] == "model-v2"
+    assert activated["previousVersion"] == "model-v1"
+    assert training.activate_model("model-v2") == activated
+
+    rolled_back = training.rollback_model()
+    assert rolled_back["activeVersion"] == "model-v1"
+    assert rolled_back["previousVersion"] == "model-v2"
+    assert json.loads((tmp_path / "registry.json").read_text(encoding="utf-8")) == rolled_back
+
+
+def test_invalid_activation_and_unavailable_rollback_leave_registry_unchanged(monkeypatch, tmp_path: Path):
+    monkeypatch.setenv("MODEL_DIR", str(tmp_path))
+    initial = {"activeVersion": "model-v1", "previousVersion": None, "versions": [{"version": "model-v1"}]}
+    (tmp_path / "registry.json").write_text(json.dumps(initial), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="Model version does not exist"):
+        training.activate_model("missing-model")
+    with pytest.raises(ValueError, match="No previous model version"):
+        training.rollback_model()
+
+    assert json.loads((tmp_path / "registry.json").read_text(encoding="utf-8")) == initial
