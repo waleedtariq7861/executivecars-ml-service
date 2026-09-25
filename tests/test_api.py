@@ -1,10 +1,28 @@
-from fastapi.testclient import TestClient
+import asyncio
+
+import httpx
 
 from app import main
 from app.training import load_active_bundle
 
 
-client = TestClient(main.app)
+class ASGITestClient:
+    def request(self, method, path, **kwargs):
+        async def send():
+            transport = httpx.ASGITransport(app=main.app)
+            async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+                return await client.request(method, path, **kwargs)
+
+        return asyncio.run(send())
+
+    def get(self, path, **kwargs):
+        return self.request("GET", path, **kwargs)
+
+    def post(self, path, **kwargs):
+        return self.request("POST", path, **kwargs)
+
+
+client = ASGITestClient()
 
 
 def test_health_reports_model_state():

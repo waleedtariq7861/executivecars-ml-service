@@ -1,0 +1,22 @@
+{
+  "activeVersion": "ec-20260820-100203-13d9e2ba",
+  "previousVersion": null,
+  "versions": [
+    {
+      "version": "ec-20260820-100203-13d9e2ba",
+      "modelName": "extra_trees_320_regularized",
+      "modelFamily": "sklearn",
+      "trainingDate": "2026-08-20T10:02:03.778761+00:00",
+      "datasetSize": 72179,
+      "trainedRows": 57743,
+      "metrics": {
+        "mae": 328377.64,
+        "rmse": 952957.28,
+        "r2": 0.9548,
+        "mape": 10.324,
+        "medianAbsoluteError": 152900.99
+      },
+      "artifactSizeBytes": 1040078804
+    }
+  ]
+}

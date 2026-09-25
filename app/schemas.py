@@ -33,3 +33,4 @@ class PredictionInput(BaseModel):
 
 class TrainingRequest(BaseModel):
     records: list[dict[str, Any]] = Field(min_length=1, max_length=100_000)
+    provenance: dict[str, Any] | None = None

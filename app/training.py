@@ -413,7 +413,31 @@ def _write_registry(registry: dict[str, Any]) -> None:
 
 
 def list_models() -> dict[str, Any]:
-    return _registry()
+    registry = _registry()
+    versions = []
+    for entry in registry.get("versions", []):
+        enriched = dict(entry)
+        metadata: dict[str, Any] = {}
+        version = entry.get("version")
+        if isinstance(version, str) and version.strip():
+            metadata_path = model_root() / version / "metadata.json"
+            if metadata_path.exists():
+                try:
+                    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+                except (OSError, json.JSONDecodeError):
+                    metadata = {}
+        recorded = metadata.get("datasetProvenance") or {}
+        enriched["provenance"] = {
+            "datasetName": recorded.get("datasetName") or metadata.get("datasetFile") or "Legacy metadata unavailable",
+            "sourceCategory": recorded.get("sourceCategory") or "Legacy metadata unavailable",
+            "datasetFingerprint": metadata.get("datasetFingerprint") or "Legacy metadata unavailable",
+            "datasetRows": metadata.get("datasetSize", entry.get("datasetSize")),
+            "trainedRows": metadata.get("trainedRows", entry.get("trainedRows")),
+            "trainingDate": metadata.get("trainingDate", entry.get("trainingDate")),
+            "sources": recorded.get("sources", []),
+        }
+        versions.append(enriched)
+    return {**registry, "versions": versions}
 
 
 def activate_model(version: str) -> dict[str, Any]:
@@ -708,7 +732,7 @@ def _segmented_error_report(
     }
 
 
-def train_from_frame(raw_frame: pd.DataFrame, file_name: str = "") -> dict[str, Any]:
+def train_from_frame(raw_frame: pd.DataFrame, file_name: str = "", provenance: dict[str, Any] | None = None) -> dict[str, Any]:
     inspection_report = inspect_dataframe(raw_frame, file_name=file_name)
     cleaned, cleaning_report = clean_dataframe(raw_frame)
     if len(cleaned) < MIN_TRAINING_ROWS:
@@ -926,6 +950,11 @@ def train_from_frame(raw_frame: pd.DataFrame, file_name: str = "") -> dict[str, 
         "inputCatalog": catalog,
         "comparables": comparables,
         "datasetFingerprint": fingerprint,
+        "datasetProvenance": provenance or {
+            "datasetName": file_name or "Legacy metadata unavailable",
+            "sourceCategory": "Legacy metadata unavailable",
+            "sources": [],
+        },
         "limitations": [
             "The source contains listing prices rather than confirmed transaction prices.",
             "The source has no listing date and its newest model year is used as a fixed feature-engineering reference year.",
@@ -1005,6 +1034,7 @@ def train_from_frame(raw_frame: pd.DataFrame, file_name: str = "") -> dict[str, 
         "metrics": final_metrics,
         "rangeCoverage": range_calibration,
         "artifactSizeBytes": artifact_size_bytes,
+        "provenance": bundle["datasetProvenance"],
     })
     _write_registry(registry)
     return _json_safe({
@@ -1023,5 +1053,5 @@ def train_from_frame(raw_frame: pd.DataFrame, file_name: str = "") -> dict[str, 
     })
 
 
-def train_from_records(records: list[dict[str, Any]]) -> dict[str, Any]:
-    return train_from_frame(pd.DataFrame.from_records(records), file_name="database-export")
+def train_from_records(records: list[dict[str, Any]], provenance: dict[str, Any] | None = None) -> dict[str, Any]:
+    return train_from_frame(pd.DataFrame.from_records(records), file_name="database-export", provenance=provenance)
