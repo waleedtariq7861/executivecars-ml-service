@@ -90,7 +90,10 @@ def test_list_models_does_not_attach_root_metadata_to_versionless_entry(monkeypa
 
     registered = training.list_models()["versions"][0]
 
-    assert registered["provenance"]["datasetName"] == "Legacy metadata unavailable"
+    # Nothing was recorded for this old entry, so the provenance says so with null instead of a placeholder string.
+    assert registered["provenance"]["datasetName"] is None
+    assert registered["provenance"]["sourceCategory"] is None
+    assert registered["provenance"]["datasetFingerprint"] is None
     assert registered["provenance"]["datasetRows"] == 12
 
 

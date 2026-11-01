@@ -428,9 +428,9 @@ def list_models() -> dict[str, Any]:
                     metadata = {}
         recorded = metadata.get("datasetProvenance") or {}
         enriched["provenance"] = {
-            "datasetName": recorded.get("datasetName") or metadata.get("datasetFile") or "Legacy metadata unavailable",
-            "sourceCategory": recorded.get("sourceCategory") or "Legacy metadata unavailable",
-            "datasetFingerprint": metadata.get("datasetFingerprint") or "Legacy metadata unavailable",
+            "datasetName": recorded.get("datasetName") or metadata.get("datasetFile"),
+            "sourceCategory": recorded.get("sourceCategory"),
+            "datasetFingerprint": metadata.get("datasetFingerprint"),
             "datasetRows": metadata.get("datasetSize", entry.get("datasetSize")),
             "trainedRows": metadata.get("trainedRows", entry.get("trainedRows")),
             "trainingDate": metadata.get("trainingDate", entry.get("trainingDate")),
@@ -951,8 +951,8 @@ def train_from_frame(raw_frame: pd.DataFrame, file_name: str = "", provenance: d
         "comparables": comparables,
         "datasetFingerprint": fingerprint,
         "datasetProvenance": provenance or {
-            "datasetName": file_name or "Legacy metadata unavailable",
-            "sourceCategory": "Legacy metadata unavailable",
+            "datasetName": file_name,
+            "sourceCategory": None,
             "sources": [],
         },
         "limitations": [
