@@ -113,4 +113,4 @@ python -m pytest tests -q
 - `POST /models/{version}/activate` — activate a stored model
 - `POST /models/rollback` — roll back to the previous version
 
-Set the same `ML_SERVICE_KEY` in FastAPI and Express when service-key protection is required.
+Set the same `ML_SERVICE_KEY` in FastAPI and Express. With `ENVIRONMENT=production` the service refuses to start without it. Once a key is set, every endpoint except `/health` (including `/predict`) needs it in the `X-Service-Key` header; the comparison is constant-time. Without a key (local development only) the endpoints are open.
