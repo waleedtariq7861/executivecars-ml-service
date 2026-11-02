@@ -47,7 +47,7 @@ def test_production_refuses_to_start_without_a_key(monkeypatch):
 
 
 @pytest.mark.parametrize("method,path", [
-    ("get", "/metadata"), ("get", "/models"), ("post", "/predict"), ("post", "/train"),
+    ("get", "/metadata"), ("get", "/models"), ("get", "/vehicle-options"), ("post", "/predict"), ("post", "/train"),
     ("post", "/models/rollback"), ("post", "/models/some-version/activate"),
 ])
 def test_every_endpoint_but_health_needs_the_key_once_one_is_set(monkeypatch, method, path):
@@ -111,3 +111,19 @@ def test_a_tampered_registry_cannot_make_the_service_load_a_file_outside_the_fol
     (isolated_models.parent / "model.joblib").write_bytes(b"not a model")
     (isolated_models / "registry.json").write_text(json.dumps({"activeVersion": "..", "previousVersion": None, "versions": []}), encoding="utf-8")
     assert training.load_active_bundle() is None
+
+
+def test_vehicle_options_are_served_with_the_key_and_match_the_shipped_file(monkeypatch):
+    with_key(monkeypatch)
+    response = call("get", "/vehicle-options", headers={"X-Service-Key": KEY})
+    assert response.status_code == 200
+    body = response.json()
+    assert body == json.loads(main.VEHICLE_OPTIONS_PATH.read_text(encoding="utf-8"))
+    assert body["version"] == 1 and any(item["make"] == "Toyota" for item in body["makes"])
+    assert all(item["models"] for item in body["makes"])
+
+
+def test_vehicle_options_work_without_a_loaded_model(monkeypatch):
+    monkeypatch.delenv("ML_SERVICE_KEY", raising=False)
+    assert main.active_bundle is None
+    assert call("get", "/vehicle-options").status_code == 200

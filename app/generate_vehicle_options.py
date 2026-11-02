@@ -71,8 +71,8 @@ def build(frame: pd.DataFrame) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", default=str(Path(__file__).resolve().parents[2] / "pakwheels_used_car_data_v02.csv"))
-    parser.add_argument("--output", default=str(Path(__file__).resolve().parents[1] / "reports" / "vehicle_options.json"))
+    parser.add_argument("--dataset", default=str(Path(__file__).resolve().parents[1] / "pakwheels_used_car_data_v02.csv"))
+    parser.add_argument("--output", default=str(Path(__file__).resolve().parent / "reference" / "vehicle_options.json"))
     args = parser.parse_args()
     raw = pd.read_csv(args.dataset)
     cleaned, _ = clean_dataframe(raw)

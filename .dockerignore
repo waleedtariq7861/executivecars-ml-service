@@ -1,0 +1,13 @@
+.git
+.venv
+.env
+.pytest_cache
+.test-cache
+__pycache__
+*.py[cod]
+models
+reports
+tests
+scripts
+*.csv
+*.md

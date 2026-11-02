@@ -10,10 +10,16 @@ app/training.py      splits, model comparison, evaluation, intervals, artifacts
 app/prediction.py    request normalisation, inference, explanations
 app/main.py          FastAPI endpoints
 app/train.py         command-line training entry point
-models/              local versioned model bundles and registry
-reports/             reproducible JSON reports
-tests/               unit/API tests
+app/generate_vehicle_options.py   builds app/reference/vehicle_options.json from the dataset
+app/reference/       vehicle_options.json: the vehicles the training data covers (served by /vehicle-options)
+models/              versioned model bundles and registry (not in Git: see "Deploying the model")
+reports/             reproducible JSON reports of the last training run
+tests/               unit/API tests (use temporary folders and a small synthetic model)
+pakwheels_used_car_data_v02.csv   the training dataset supplied with the project
+Dockerfile, railway.json          how Railway builds and runs the service
 ```
+
+This service is one of three separately deployed parts of Executive Cars; the others are [executivecars-backend](https://github.com/waleedtariq7861/executivecars-backend) (which calls this service) and [executivecars-frontend](https://github.com/waleedtariq7861/executivecars-frontend).
 
 ## Cleaning policy
 
@@ -98,7 +104,7 @@ For the selected scikit-learn model, important factors come from held-out permut
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python -m app.train --input ../pakwheels_used_car_data_v02.csv
+python -m app.train --input pakwheels_used_car_data_v02.csv
 python run.py
 python -m pytest tests -q
 ```
@@ -107,6 +113,7 @@ python -m pytest tests -q
 
 - `GET /health` — status, model load state, model name, version, trained rows
 - `GET /metadata` — model-supported input catalogue and public metadata
+- `GET /vehicle-options` — makes, models, years and specifications the training data covers; the backend validates valuation requests against it
 - `POST /predict` — validated valuation response
 - `GET /models` — version registry
 - `POST /train` — protected administrative training from supplied records
@@ -114,3 +121,22 @@ python -m pytest tests -q
 - `POST /models/rollback` — roll back to the previous version
 
 Set the same `ML_SERVICE_KEY` in FastAPI and Express. With `ENVIRONMENT=production` the service refuses to start without it. Once a key is set, every endpoint except `/health` (including `/predict`) needs it in the `X-Service-Key` header; the comparison is constant-time. Without a key (local development only) the endpoints are open.
+
+## Deploying the model
+
+The trained model (`models/<version>/model.joblib`, about 1 GB) and the registry (`models/registry.json`) are **not** in Git. They are runtime data and live in the folder named by `MODEL_DIR`. On Railway that folder is on a Volume, so models survive redeploys and so do models trained later through `POST /train`.
+
+The Docker image sets `MODEL_DIR=/data/models` and `REPORT_DIR=/data/reports`; attach a Volume to the service with mount path `/data`. Without a model the service starts, `/health` reports `modelLoaded: false` and `/predict` answers 503.
+
+Put an existing model on the volume once, from a machine that has the `models` folder (the Railway CLI must be logged in and linked to the project and service):
+
+```bash
+railway volume files --volume <volume-name> upload ./models /models
+railway volume files --volume <volume-name> list /models
+```
+
+Then restart the service. `GET /health` must show `modelLoaded: true` and the model version. Memory: the loaded model needs about 1.2 GB, and about 2.3 GB while it loads.
+
+## Deploying the service
+
+Railway builds the `Dockerfile` (the versions in `requirements.lock`, because Joblib models must be read by the scikit-learn version they were written with) and starts `uvicorn` on `PORT`, bound to `0.0.0.0` (the private network of a Railway project created after 2025-10-16 is reachable over IPv4). Set `ML_SERVICE_KEY` (required: `ENVIRONMENT=production` is set in the image) and `PORT=8000`, give the service **no public domain**, and point the backend's `ML_SERVICE_URL` at `http://<service-name>.railway.internal:8000`. The full order of steps is in the backend repository's `DEPLOYMENT.md`.

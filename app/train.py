@@ -13,8 +13,8 @@ from .training import train_from_frame
 def main() -> None:
     parser = argparse.ArgumentParser(description="Train the Executive Cars valuation model from a legal CSV or JSON dataset.")
     parser.add_argument("--input", required=True, help="Path to a CSV or JSON dataset")
-    parser.add_argument("--model-dir", help="Optional model registry directory (defaults to ml-service/models)")
-    parser.add_argument("--report-dir", help="Optional report directory (defaults to ml-service/reports)")
+    parser.add_argument("--model-dir", help="Optional model registry directory (defaults to ./models)")
+    parser.add_argument("--report-dir", help="Optional report directory (defaults to ./reports)")
     args = parser.parse_args()
     if args.model_dir:
         os.environ["MODEL_DIR"] = str(Path(args.model_dir).expanduser().resolve())

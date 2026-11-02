@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import hmac
+import json
 import os
 import threading
 from datetime import datetime, timezone
+from functools import lru_cache
+from pathlib import Path
 from typing import Annotated
 
 from fastapi import Depends, FastAPI, Header, HTTPException
@@ -37,6 +40,14 @@ def require_service_key(x_service_key: Annotated[str | None, Header()] = None) -
     # Constant-time comparison, so the response time does not reveal how much of a guessed key was right.
     if not hmac.compare_digest((x_service_key or "").encode("utf-8"), configured.encode("utf-8")):
         raise HTTPException(status_code=401, detail="Invalid service key")
+
+
+VEHICLE_OPTIONS_PATH = Path(__file__).resolve().parent / "reference" / "vehicle_options.json"
+
+
+@lru_cache(maxsize=1)
+def vehicle_options_index() -> dict:
+    return json.loads(VEHICLE_OPTIONS_PATH.read_text(encoding="utf-8"))
 
 
 def reload_bundle() -> None:
@@ -73,6 +84,12 @@ def metadata() -> dict:
         "inputCatalog": active_bundle.get("inputCatalog", {}),
         "limitations": active_bundle.get("limitations", []),
     }
+
+
+@app.get("/vehicle-options", dependencies=[Depends(require_service_key)])
+def vehicle_options() -> dict:
+    """The makes, models, years and specifications the training data covers; the backend validates valuation requests against it."""
+    return vehicle_options_index()
 
 
 @app.post("/predict", dependencies=[Depends(require_service_key)])
