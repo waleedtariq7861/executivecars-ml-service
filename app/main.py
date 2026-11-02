@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hmac
 import os
 import threading
 from datetime import datetime, timezone
@@ -15,6 +16,15 @@ from .training import activate_model, list_models, load_active_bundle, rollback_
 
 
 load_dotenv()
+
+
+def ensure_service_key_configured() -> None:
+    """A production service that anyone can tell to train or switch models is not acceptable: refuse to start without a key."""
+    if os.getenv("ENVIRONMENT") == "production" and not os.getenv("ML_SERVICE_KEY", "").strip():
+        raise RuntimeError("ML_SERVICE_KEY is required when ENVIRONMENT=production")
+
+
+ensure_service_key_configured()
 app = FastAPI(title="Executive Cars Valuation Service", version="1.0.0", docs_url="/docs" if os.getenv("ENVIRONMENT") != "production" else None)
 state_lock = threading.Lock()
 active_bundle = load_active_bundle()
@@ -22,7 +32,10 @@ active_bundle = load_active_bundle()
 
 def require_service_key(x_service_key: Annotated[str | None, Header()] = None) -> None:
     configured = os.getenv("ML_SERVICE_KEY", "").strip()
-    if configured and x_service_key != configured:
+    if not configured:
+        return  # local development only: production refuses to start without a key (see above)
+    # Constant-time comparison, so the response time does not reveal how much of a guessed key was right.
+    if not hmac.compare_digest((x_service_key or "").encode("utf-8"), configured.encode("utf-8")):
         raise HTTPException(status_code=401, detail="Invalid service key")
 
 
@@ -62,7 +75,7 @@ def metadata() -> dict:
     }
 
 
-@app.post("/predict")
+@app.post("/predict", dependencies=[Depends(require_service_key)])
 def prediction(payload: PredictionInput) -> dict:
     if active_bundle is None:
         raise HTTPException(status_code=503, detail="No trained model is active")

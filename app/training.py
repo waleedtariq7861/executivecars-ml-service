@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import math
 import os
+import re
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -440,9 +441,22 @@ def list_models() -> dict[str, Any]:
     return {**registry, "versions": versions}
 
 
+_VERSION_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]{0,99}")
+
+
+def _version_directory(version: Any) -> Path | None:
+    """The folder of a model version, or None when the name could point anywhere other than a direct child of the model root."""
+    if not isinstance(version, str) or not _VERSION_PATTERN.fullmatch(version) or ".." in version:
+        return None
+    root = model_root()
+    candidate = (root / version).resolve()
+    return candidate if candidate.parent == root else None
+
+
 def activate_model(version: str) -> dict[str, Any]:
     registry = _registry()
-    if not (model_root() / version / "model.joblib").exists():
+    directory = _version_directory(version)
+    if directory is None or not (directory / "model.joblib").exists():
         raise ValueError("Model version does not exist")
     if registry.get("activeVersion") != version:
         registry["previousVersion"] = registry.get("activeVersion")
@@ -467,8 +481,9 @@ def load_active_bundle() -> dict[str, Any] | None:
     version = _registry().get("activeVersion")
     if not version:
         return None
-    path = model_root() / version / "model.joblib"
-    return joblib.load(path) if path.exists() else None
+    directory = _version_directory(version)
+    path = directory / "model.joblib" if directory else None
+    return joblib.load(path) if path and path.exists() else None
 
 
 def _normalise_candidate(spec: Any) -> tuple[str, Any]:
